@@ -1,22 +1,28 @@
 /**
  * getmeta.js — 从远程获取元数据，动态更新蓝奏云下载链接
  *
- * 降级链：
- *   1. https://raw.giteeusercontent.com/…  （Gitee raw，国内快）
- *   2. https://raw.githubusercontent.com/… （GitHub raw，支持 CORS）
- *   3. https://api.allorigins.win/raw?url=…（CORS 代理兜底）
+ * 降级链（针对国内访问优化）：
+ *   1. https://gitee.com/…/raw/…          （Gitee 直连，国内最快，支持 CORS）
+ *   2. https://raw.giteeusercontent.com/… （Gitee CDN 加速，备用）
+ *   3. https://api.allorigins.win/raw?url=…（CORS 代理兜底，速度较慢但可靠）
+ *   4. https://raw.githubusercontent.com/…（GitHub raw，无 CORS 头，作为最后尝试）
  *   全部失败则保留 HTML 中的默认值。
  */
 (async function () {
     "use strict";
 
     const SOURCES = [
+        // 第一优先：Gitee 直连（国内最快，支持 CORS）
+        "https://gitee.com/ElofHew/RandomCallTool/raw/main/metadata.json",
+        // 第二优先：Gitee CDN 加速（备用）
         "https://raw.giteeusercontent.com/ElofHew/RandomCallTool/raw/main/metadata.json",
-        "https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json",
+        // 第三优先：CORS 代理（兜底，速度慢但可靠）
         "https://api.allorigins.win/raw?url=" +
             encodeURIComponent(
                 "https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json"
             ),
+        // 第四优先：GitHub raw（无 CORS 头，浏览器可能阻止，但作为最后尝试）
+        "https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json",
     ];
 
     const linkEl = document.getElementById("lanzou-link");
