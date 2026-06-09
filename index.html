@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="随机抽取工具（RandomCallTool），是一个基于Python3 + tkinter的桌面应用程序，支持随机抽组和随机抽人，内置三档可切换的抽样模式。基于MIT License开源，支持Windows、Linux、macOS等操作系统，代码托管于GitHub和Gitee，欢迎您下载和使用。" />
+        <meta name="keywords" content="RandomCallTool,随机抽取工具,随机抽组,随机抽人,Dan_Evan,ElofHew,Python,tkinter,开源,GitHub,Gitee" />
+        <meta name="author" content="Dan_Evan" />
+        <meta name="robots" content="index,follow" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link type="text/css" href="style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+        <title>随机抽取工具 - 官方网站</title>
+    </head>
+    <body>
+        <div class="header">
+            <b>随机抽取工具</b>
+            <div class="header-right">
+                <a href="docs/">文档</a>
+                <a href="https://github.com/ElofHew/RandomCallTool" target="_blank"><img src="icon/github.svg" alt="GitHub" title="GitHub" width="20" /></a>
+                <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank"><img src="icon/gitee.svg" alt="Gitee" title="Gitee" width="20" /></a>
+            </div>
+        </div>
+        <div class="main" id="main">
+            <div class="hero">
+                <img src="icon/randomcalltool.svg" alt="RandomCallTool Logo" width="180" />
+                <h1>随机抽取工具</h1>
+                <p class="subtitle">RandomCallTool</p>
+                <p>一个基于 Python + tkinter 的桌面随机抽取应用程序</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/ElofHew/RandomCallTool/releases" class="button primary" target="_blank">下载最新版本</a>
+                    <a href="#features" class="button secondary">了解更多</a>
+                    <a href="docs" class="button secondary">阅读文档</a>
+                </div>
+            </div>
+
+            <div class="section" id="about">
+                <h2>简介</h2>
+                <div class="about-content">
+                    <p>随机抽取工具（RandomCallTool）是一个基于 <strong>Python3 + tkinter</strong> 的桌面应用程序，拥有 <strong>随机抽组</strong> 和 <strong>随机抽人</strong> 两大核心功能。</p>
+                    <p>主程序提供三档可切换的抽样模式（基本抽样 / 智能抽样 / 加权抽样），并支持样本库管理、历史记录、快捷键操作等丰富特性。</p>
+                    <p>配套的 <strong>名单编码工具（EncodeTool）</strong> 用于将明文名单编码为 RCP 文件，供主程序的"随机抽人"功能使用。</p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <span class="info-label">当前版本</span>
+                            <span class="info-value">v2.3</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">发布日期</span>
+                            <span class="info-value">2026-06-09</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">开源协议</span>
+                            <span class="info-value">MIT License</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="features">
+                <h2>主要功能</h2>
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎲</div>
+                        <h3>随机抽组</h3>
+                        <p>支持从数字（1-26）或字母（A-Z）中随机抽取指定数量的组，操作简单直观。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>随机抽人</h3>
+                        <p>支持从样本文件（.rcp / .txt / .csv）或样本库中随机抽取指定数量的人名。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>三档抽样模式</h3>
+                        <p>基本抽样（random.sample）、智能抽样（追踪历史降权）、加权抽样（自定义权重），灵活应对不同场景。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>样本库管理</h3>
+                        <p>可将常用名单导入样本库（上限 50 个），支持从样本库快速加载，方便日常使用。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📜</div>
+                        <h3>历史记录面板</h3>
+                        <p>右侧面板展示抽取历史，支持单条保存和批量保存全部历史为 HTML 文件。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>配置管理</h3>
+                        <p>多选项卡配置窗口，支持自动保存结果、抽样模式、样本管理、更新设置等丰富的自定义选项。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>自动检测更新</h3>
+                        <p>启动时静默检测 GitHub / Gitee 新版本，发现新版本时弹窗提示下载。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⌨️</div>
+                        <h3>快捷键操作</h3>
+                        <p>丰富的键盘快捷键支持，大幅提升操作效率，让抽取工作更加流畅。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>详细日志记录</h3>
+                        <p>按日期滚动记录程序运行状态，支持查看和清理日志文件，便于调试和追踪。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="screenshots">
+                <h2>界面截图</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <a href="img/img1.png" target="_blank">
+                            <img src="img/img1.png" alt="主界面" />
+                        </a>
+                        <p>主程序界面（主页选项卡）</p>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="img/img2.png" target="_blank">
+                            <img src="img/img2.png" alt="随机抽组" />
+                        </a>
+                        <p>随机抽组功能</p>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="img/img3.png" target="_blank">
+                            <img src="img/img3.png" alt="随机抽人" />
+                        </a>
+                        <p>随机抽人功能</p>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="img/img4.png" target="_blank">
+                            <img src="img/img4.png" alt="编码工具" />
+                        </a>
+                        <p>名单编码工具</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="sampling">
+                <h2>抽样模式</h2>
+                <div class="modes-container">
+                    <div class="mode-card">
+                        <h3>模式 0 · 基本抽样</h3>
+                        <div class="mode-badge basic">基础</div>
+                        <p>使用 Python 内置的 <code>random.sample</code> 进行简单随机抽取，每个样本被抽中的概率均等。适用于简单的抽选场景。</p>
+                    </div>
+                    <div class="mode-card">
+                        <h3>模式 1 · 智能抽样</h3>
+                        <div class="mode-badge smart">智能</div>
+                        <p>追踪近期抽取历史，自动降低刚被选中项的权重，让每个人都有更均等的机会被抽中。适用于多次连续抽取的场景。</p>
+                    </div>
+                    <div class="mode-card">
+                        <h3>模式 2 · 加权抽样</h3>
+                        <div class="mode-badge weighted">加权</div>
+                        <p>可为每个样本单独设置权重，权重越高被抽中的概率越大。适用于需要差异化概率的场景。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="encode-tool">
+                <h2>名单编码工具</h2>
+                <div class="encode-content">
+                    <p>随机抽人名单编码工具（EncodeTool）是 RandomCallTool 的配套工具，用于将明文名单编码为 <strong>.rcp 文件</strong>，供主程序的"随机抽人"功能使用。</p>
+                    <div class="features-container">
+                        <div class="feature-card small">
+                            <h3>编码转换</h3>
+                            <p>支持 Base64 和 Hex 两种编码方式，灵活选择。</p>
+                        </div>
+                        <div class="feature-card small">
+                            <h3>批量处理</h3>
+                            <p>支持对整个目录下的 .txt 文件进行批量编码或批量解码测试。</p>
+                        </div>
+                        <div class="feature-card small">
+                            <h3>命令行模式</h3>
+                            <p>支持命令行参数直接指定文件、批量目录、编码方式等。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="download">
+                <h2>下载与仓库</h2>
+                <div class="download-container">
+                    <div class="download-card">
+                        <h3>📦 直接下载</h3>
+                        <p>适合中国大陆用户，直接从蓝奏云网盘下载，双击运行安装。</p>
+                        <a id="lanzou-link" href="https://lzofevan.lanzn.com/b00egnsquj?pwd=1eya" class="button primary" target="_blank">蓝奏云下载</a>
+                        <p id="lanzou-pwd" class="download-note">提取码：1eya</p>
+                    </div>
+                    <div class="download-card">
+                        <h3>🐙 GitHub</h3>
+                        <p>访问 GitHub 仓库查看源码、获取最完整的项目信息。</p>
+                        <a href="https://github.com/ElofHew/RandomCallTool" class="button secondary" target="_blank">前往 GitHub</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>🐲 Gitee</h3>
+                        <p>访问 Gitee 仓库（国内镜像），获取源码和发布版本。</p>
+                        <a href="https://gitee.com/ElofHew/RandomCallTool" class="button secondary" target="_blank">前往 Gitee</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="build">
+                <h2>自行编译</h2>
+                <div class="build-content">
+                    <p>如果您想自行编译源代码，请按照以下步骤操作：</p>
+                    <ol>
+                        <li>确保安装了 <strong>Python 3.6+</strong> 环境（推荐 3.8 及以上版本，建议 3.12）。</li>
+                        <li>克隆或下载项目到本地：<code>git clone https://github.com/ElofHew/RandomCallTool.git</code></li>
+                        <li>安装 PyInstaller：<code>pip install pyinstaller</code></li>
+                        <li>运行构建脚本生成可执行文件：<code>build_standard.bat</code>（标准打包）或 <code>build_onefile.bat</code>（单文件打包）。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Copyright &copy; 2025~2026 ElofHew. All rights reserved.</p>
+                <p class="footer-note">“随机抽取工具” 是基于 “MIT” 开源协议开发的桌面应用程序，请勿用于商业用途。</p>
+            </div>
+        </div>
+        <script src="js/getmeta.js"></script>
+    </body>
+</html>

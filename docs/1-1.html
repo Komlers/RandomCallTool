@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>随机抽组操作指南 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>随机抽组操作指南</h1>
+            <p>随机抽组功能支持从数字（1-26）或字母（A-Z）中随机抽取指定数量的组，适用于分组、编号抽取等场景。</p>
+            <hr>
+            <h2>操作步骤</h2>
+            <h3>① 切换至随机抽组模式</h3>
+            <p>打开程序后，切换到「随机抽取」选项卡，选择「随机抽组」模式。</p>
+            <h3>② 选择分组方式</h3>
+            <ul>
+                <li><strong>数字（123）</strong>：组编号为 1, 2, 3 ... 26</li>
+                <li><strong>字母（ABC）</strong>：组编号为 A, B, C ... Z</li>
+            </ul>
+            <h3>③ 设置参数</h3>
+            <ul>
+                <li><strong>样本总数</strong>：设置总组数，范围 1-26</li>
+                <li><strong>抽取数量</strong>：设置要抽取的组数（不能超过总组数）</li>
+            </ul>
+            <h3>④ 执行抽取</h3>
+            <p>点击「抽取」按钮或按 <kbd>Ctrl+Enter</kbd> 进行随机抽取。抽取结果会立即展示在程序窗口中。</p>
+            <h3>⑤ 保存结果</h3>
+            <p>抽取完成后，可以按 <kbd>Ctrl+S</kbd> 将本次结果保存为 HTML 文件，或按 <kbd>Ctrl+Shift+S</kbd> 批量保存所有历史记录。</p>
+            <hr>
+            <h2>示例场景</h2>
+            <ul>
+                <li><strong>课堂分组</strong>：将全班同学随机分到 A、B、C、D 四个组</li>
+                <li><strong>编号抽选</strong>：从 1-20 号中随机抽取 5 个号码</li>
+                <li><strong>轮值排班</strong>：从多个小组中随机抽取本周值班组</li>
+            </ul>
+            <hr>
+            <h2>小贴士</h2>
+            <ul>
+                <li>总组数最大为 26（对应字母表 A-Z）</li>
+                <li>抽取结果支持重复抽取，每次独立随机</li>
+                <li>配合「智能抽样」模式使用时可降低近期被选中项的权重</li>
+            </ul>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

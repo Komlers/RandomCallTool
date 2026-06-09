@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>常见问题与注意事项 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>常见问题与注意事项</h1>
+            <hr>
+            <h2>常见问题</h2>
+            <h3>Q: 抽取人数超过了样本总数怎么办？</h3>
+            <p>程序会自动限制抽取数量不能超过样本总数。如果您设置的抽取数量大于样本总数，程序会自动将其调整为样本总数的最大值。</p>
+            <h3>Q: 如何将常用名单保存起来，方便下次使用？</h3>
+            <p>您可以将常用名单导入样本库（上限 50 个）。通过菜单「文件 → 导入样本到库」（<kbd>Ctrl+I</kbd>）即可将当前加载的名单添加到样本库中。下次使用时，按 <kbd>Ctrl+Shift+O</kbd> 从样本库快速加载。</p>
+            <h3>Q: 结果文件保存在哪里？</h3>
+            <p>结果文件默认保存在 <code>data/result</code> 目录，也可以在配置中改为保存到桌面。您可以通过菜单「文件 → 打开结果目录」快速访问保存位置。</p>
+            <h3>Q: 如何查看程序运行日志？</h3>
+            <p>通过菜单「日志 → 查看日志」（<kbd>Ctrl+L</kbd>）打开当日日志文件。日志文件按日期滚动记录，存放在 <code>data/log</code> 目录。也可以通过「日志 → 清除日志」清理历史日志文件。</p>
+            <h3>Q: 如何检查是否有新版本？</h3>
+            <p>程序启动时会自动静默检测新版本（可在配置中关闭）。您也可以手动通过菜单「工具 → 检测更新」来检查版本更新。</p>
+            <h3>Q: 如何生成 RCP 编码文件？</h3>
+            <p>通过菜单「工具 → 编码工具」直接打开配套的名单编码工具（EncodeTool）。详情请参阅 <a href="2-1.html">名单编码工具说明</a>。</p>
+            <h3>Q: 如何卸载程序？</h3>
+            <p>项目附带了独立的卸载工具 <code>remove.exe</code>，提供两种模式：</p>
+            <ul>
+                <li><strong>保留数据卸载</strong>：仅移除程序文件，保留配置、日志和结果数据</li>
+                <li><strong>完全卸载</strong>：移除程序文件及所有用户数据</li>
+            </ul>
+            <hr>
+            <h2>注意事项</h2>
+            <ol>
+                <li><strong>重复名字处理</strong>：程序支持重复名字自动去重，可在配置中开启或关闭此功能。</li>
+                <li><strong>抽取数量限制</strong>：抽取人数不能超过样本总数，程序会自动进行限制。</li>
+                <li><strong>默认样本文件</strong>：默认样本文件存放在 <code>data/default.rcp</code>。</li>
+                <li><strong>结果保存路径</strong>：结果文件默认保存在 <code>data/result</code> 目录或桌面，具体位置可在配置中设置。</li>
+                <li><strong>跨平台支持</strong>：程序支持三大平台（Windows / Linux / macOS），但仅提供 Windows 编译版本。Linux 和 macOS 用户需自行通过源码运行。</li>
+                <li><strong>优先支持 Windows</strong>：该项目优先支持 Windows 操作系统环境。对于 Linux 和 macOS 用户，可以使用，但可能会遇到一些未查明的问题。</li>
+                <li><strong>合并重复名字</strong>：加载样本时，可自动合并重复的名字（可在配置中关闭）。</li>
+                <li><strong>文件编码</strong>：编码工具支持 UTF-8 / GBK / GB2312 / GB18030 / UTF-16 等多种文件编码，会自动尝试解码。</li>
+            </ol>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

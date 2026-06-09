@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>抽样模式详解 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>抽样模式详解</h1>
+            <p>随机抽取工具内置三档可切换的抽样模式，满足不同场景下的抽取需求。</p>
+            <hr>
+            <h2>模式 0 · 基本抽样</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>说明</strong></td>
+                        <td>使用 Python 内置的 <code>random.sample</code> 进行简单随机抽取</td>
+                    </tr>
+                    <tr>
+                        <td><strong>特点</strong></td>
+                        <td>每个样本被抽中的概率均等，无记忆性</td>
+                    </tr>
+                    <tr>
+                        <td><strong>适用场景</strong></td>
+                        <td>一次性抽选、无需考虑历史记录的场景</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>基本抽样是最简单直接的方式，每次抽取都是独立事件，不会受到之前抽取结果的影响。适合做一次性随机抽选。</p>
+            <hr>
+            <h2>模式 1 · 智能抽样</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>说明</strong></td>
+                        <td>追踪近期抽取历史，自动降低刚被选中项的权重</td>
+                    </tr>
+                    <tr>
+                        <td><strong>特点</strong></td>
+                        <td>具有记忆性，公平性更高，避免同一个人被连续抽中</td>
+                    </tr>
+                    <tr>
+                        <td><strong>适用场景</strong></td>
+                        <td>多次连续抽取、课堂提问、轮值分配等需要公平的场景</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>智能抽样通过维护一个"记忆窗口"来记录最近被抽中的样本。当样本近期被抽中时，其在下一次抽取中的权重会自动降低，从而让其他未被选中的样本有更高的概率被抽中。</p>
+            <p>您可以在配置中调整智能抽样的记忆窗口大小，以控制"近期"的范围。</p>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>如果需要重新开始公平性计算，可以按 <kbd>Ctrl+Shift+R</kbd> 重置抽样历史。</p>
+            </blockquote>
+            <hr>
+            <h2>模式 2 · 加权抽样</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>说明</strong></td>
+                        <td>可为每个样本单独设置权重，权重越高被抽中的概率越大</td>
+                    </tr>
+                    <tr>
+                        <td><strong>特点</strong></td>
+                        <td>高度可定制，权重由用户自由分配</td>
+                    </tr>
+                    <tr>
+                        <td><strong>适用场景</strong></td>
+                        <td>需要差异化概率的场景，如按贡献度抽取、优先级抽选等</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>加权抽样允许您为名单中的每个样本赋予不同的权重值。权重越大的样本，在每次抽取中被选中的概率就越高。例如，可以将核心成员的权重设为 3，普通成员的权重设为 1，这样核心成员被抽中的概率是普通成员的三倍。</p>
+            <hr>
+            <h2>模式对比</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>特性</th>
+                        <th>基本抽样</th>
+                        <th>智能抽样</th>
+                        <th>加权抽样</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>记忆性</td>
+                        <td>无</td>
+                        <td>有</td>
+                        <td>无</td>
+                    </tr>
+                    <tr>
+                        <td>公平性</td>
+                        <td>均等</td>
+                        <td>动态公平</td>
+                        <td>按权重</td>
+                    </tr>
+                    <tr>
+                        <td>可定制性</td>
+                        <td>低</td>
+                        <td>中</td>
+                        <td>高</td>
+                    </tr>
+                    <tr>
+                        <td>适用场景</td>
+                        <td>一次性抽取</td>
+                        <td>多次抽取</td>
+                        <td>差异化概率</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
