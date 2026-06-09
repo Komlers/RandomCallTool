@@ -13,19 +13,14 @@
 (async function () {
     "use strict";
 
-    const REQUEST_TIMEOUT_MS = 2000; // 超时时间 2 秒
+    const REQUEST_TIMEOUT_MS = 3000; // 超时时间
 
     const SOURCES = [
-        // 第一优先：Gitee 直连（国内最快，支持 CORS）
-        "https://gitee.com/ElofHew/RandomCallTool/raw/main/metadata.json",
-        // 第二优先：Gitee CDN 加速（备用）
-        "https://raw.giteeusercontent.com/ElofHew/RandomCallTool/raw/main/metadata.json",
-        // 第三优先：CORS 代理（兜底，速度慢但可靠）
-        "https://api.allorigins.win/raw?url=" +
-            encodeURIComponent(
-                "https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json"
-            ),
-        // 第四优先：GitHub raw（无 CORS 头，浏览器可能阻止，但作为最后尝试）
+        // 1 - GitHub CDN 加速（速度较快，能用）
+        "https://cdn.jsdelivr.net/gh/ElofHew/RandomCallTool@main/metadata.json",
+        // 2 - 第三方 CORS 代理（速度较慢，但可靠）
+        "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json"),
+        // 3 - GitHub Raw（原生支持 CORS，但可能会被墙）
         "https://raw.githubusercontent.com/ElofHew/RandomCallTool/main/metadata.json",
     ];
 
