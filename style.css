@@ -27,7 +27,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .header b {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     margin-left: 20px;
     padding: 0;
@@ -546,7 +546,7 @@ a, a:hover, a:active, a:visited {
     }
 
     .header b {
-        font-size: 14px;
+        font-size: 16px;
         margin-left: 12px;
     }
 

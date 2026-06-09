@@ -21,7 +21,8 @@
 
     const linkEl = document.getElementById("lanzou-link");
     const pwdEl = document.getElementById("lanzou-pwd");
-    if (!linkEl || !pwdEl) return;
+    const verEl = document.getElementById("meta-version");
+    const dateEl = document.getElementById("meta-date");
 
     /**
      * 尝试从单个 URL 拉取并解析 JSON
@@ -48,12 +49,24 @@
         if (meta) break;
     }
 
-    if (meta && meta.lanzou) {
-        if (meta.lanzou.download) {
-            linkEl.href = meta.lanzou.download;
+    if (meta) {
+        // ── 版本信息 ──
+        if (meta.version) {
+            if (meta.version.version && verEl) {
+                verEl.textContent = "v" + meta.version.version;
+            }
+            if (meta.version.date && dateEl) {
+                dateEl.textContent = meta.version.date;
+            }
         }
-        if (meta.lanzou.password) {
-            pwdEl.textContent = "提取码：" + meta.lanzou.password;
+        // ── 蓝奏云链接 ──
+        if (meta.lanzou) {
+            if (meta.lanzou.download && linkEl) {
+                linkEl.href = meta.lanzou.download;
+            }
+            if (meta.lanzou.password && pwdEl) {
+                pwdEl.textContent = "提取码：" + meta.lanzou.password;
+            }
         }
     } else {
         console.warn("所有下载元数据源均不可达，保留 HTML 中的默认值");
