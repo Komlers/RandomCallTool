@@ -45,6 +45,7 @@
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         try {
+            console.log(`尝试从 ${url} 获取元数据...`);
             const response = await fetch(url, {
                 cache: "no-cache",
                 mode: "cors",
@@ -98,6 +99,7 @@
         if (meta.lanzou) {
             if (meta.lanzou.download && linkEl) {
                 linkEl.href = meta.lanzou.download;
+                linkEl.target = "_blank";
             }
             if (meta.lanzou.password && pwdEl) {
                 pwdEl.textContent = "提取码：" + meta.lanzou.password;
