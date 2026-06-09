@@ -7,9 +7,13 @@
  *   3. https://api.allorigins.win/raw?url=…（CORS 代理兜底，速度较慢但可靠）
  *   4. https://raw.githubusercontent.com/…（GitHub raw，无 CORS 头，作为最后尝试）
  *   全部失败则保留 HTML 中的默认值。
+ * 
+ * 每个请求超时时间：2 秒
  */
 (async function () {
     "use strict";
+
+    const REQUEST_TIMEOUT_MS = 2000; // 超时时间 2 秒
 
     const SOURCES = [
         // 第一优先：Gitee 直连（国内最快，支持 CORS）
@@ -31,18 +35,43 @@
     const dateEl = document.getElementById("meta-date");
 
     /**
+     * 带超时控制的 fetch 请求
+     * @param {string} url 请求地址
+     * @param {number} timeoutMs 超时时间（毫秒）
+     * @returns {Promise<Response|null>}
+     */
+    async function fetchWithTimeout(url, timeoutMs) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+        try {
+            const response = await fetch(url, {
+                cache: "no-cache",
+                mode: "cors",
+                signal: controller.signal,
+            });
+            clearTimeout(timeoutId);
+            return response;
+        } catch (error) {
+            clearTimeout(timeoutId);
+            // 区分超时错误和其他错误
+            if (error.name === "AbortError") {
+                console.warn(`请求超时 (${timeoutMs}ms): ${url}`);
+            }
+            return null;
+        }
+    }
+
+    /**
      * 尝试从单个 URL 拉取并解析 JSON
      * @param {string} url
      * @returns {Promise<object|null>}
      */
     async function tryFetch(url) {
         try {
-            const resp = await fetch(url, {
-                cache: "no-cache",
-                mode: "cors",
-            });
-            if (!resp.ok) return null;
-            return await resp.json();
+            const response = await fetchWithTimeout(url, REQUEST_TIMEOUT_MS);
+            if (!response || !response.ok) return null;
+            return await response.json();
         } catch {
             return null;
         }
