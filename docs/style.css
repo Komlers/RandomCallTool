@@ -131,3 +131,7 @@ a, a:hover, a:active, a:visited {
 .sidebar ul ul a:hover {
     background-color: #545b62;
 }
+
+.scroll-offset {
+    scroll-margin-top: 60px;
+}

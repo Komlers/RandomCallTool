@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>版本更新记录 - 随机抽取工具 帮助文档</title>
+</head>
+
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>版本更新记录</h1>
+            <div id="2400">
+                <h2>V2.4</h2>
+                <p>2026-06-10</p>
+                <p><strong>热烈祝贺 <a href="https://rct.danevan.top/" target="_blank">随机抽取工具 - 官方网站</a> 即日建立！</strong></p>
+                <h3>主程序 V2.4</h3>
+                <ul>
+                    <li>新增选择下载源：GitHub、Gitee、蓝奏云(网盘)、官网(其实就是前三个的整合)</li>
+                    <li>新增程序内图标支持（没错孩子们，我终于修复了这个最古老的BUG）</li>
+                    <li>主程序现在支持打开官网（没有官网就没有V2.4）</li>
+                </ul>
+                <h3>名单编码工具 V1.3</h3>
+                <ul>
+                    <li>新增程序内图标支持（同上）</li>
+                </ul>
+                <h3>卸载工具 V1.1</h3>
+                <ul>
+                    <li>新增重置功能（清除软件数据）</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="2300">
+                <h2>V2.3</h2>
+                <p>2026-06-09</p>
+                <h3>主程序 V2.3</h3>
+                <ul>
+                    <li>新增快捷键支持（太多了自己去看README我懒得写了）。</li>
+                    <li>重新设计 <strong>使用帮助</strong> 和 <strong>关于</strong> 界面，使用更现代化的UI，同时使用帮助支持翻页阅读。</li>
+                    <li>程序目录新增 <code>res</code> 目录，用于存放资源文件，并且为后续更新作准备。</li>
+                    <li>更新页面选择更新源处，新增建议帮助用户选择 <code>GitHub</code> 或 <code>Gitee</code> 源。</li>
+                </ul>
+                <h3>名单编码工具 V1.2</h3>
+                <ul>
+                    <li><strong>使用说明</strong> 和 <strong>关于</strong> 界面换用新版样式，与主程序一致。</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="2200">
+                <h2>V2.2</h2>
+                <p>2026-06-07</p>
+                <h3>主要功能</h3>
+                <ul>
+                    <li>新增三档抽样模式：基本抽样（简单随机）、智能抽样（避免连续抽中同一项）、加权抽样（按权重抽取），可在配置中默认切换</li>
+                    <li>新增样本库管理：支持将常用名单导入样本库（上限50个），可从样本库快速加载</li>
+                    <li>新增整合式操作界面：抽人与抽组在同一选项卡内通过 RadioButton 切换，交互更流畅</li>
+                    <li>新增配置管理多选项卡：基本设置、抽样设置、样本管理、默认值、更新设置五大选项卡</li>
+                </ul>
+                <h3>随机抽取</h3>
+                <ul>
+                    <li>原 <strong>随机抽组</strong> 和 <strong>随机抽人</strong> 现已整合。</li>
+                    <li>智能抽样记忆窗口：可配置记忆窗口大小，自动降低刚被选中项的权重</li>
+                    <li>加权抽样：可为每个样本单独设置权重，权重越高被抽中的概率越大</li>
+                    <li>支持手动选择文件、从样本库加载、自动加载默认文件或重新加载当前文件</li>
+                    <li>右侧面板展示抽取历史，支持单条保存和批量保存全部历史</li>
+                </ul>
+                <h3>辅助功能</h3>
+                <ul>
+                    <li>自动检测更新：启动时静默检测 GitHub/Gitee 新版本，发现新版本时弹窗提示下载</li>
+                    <li>详细日志记录：按日期滚动记录程序运行状态，支持查看和清理日志文件</li>
+                    <li>结果保存增强：支持自动保存抽取结果，保存路径可自定义</li>
+                </ul>
+                <h3>名单编码工具 v1.1</h3>
+                <ul>
+                    <li>新增 Base64 / Hex 双编码方式</li>
+                    <li>新增批量编码/解码目录功能</li>
+                    <li>新增命令行模式支持</li>
+                    <li>新增编码测试与循环验证功能</li>
+                    <li>新增快捷键支持（Ctrl+O、Ctrl+S、Ctrl+Enter 等）</li>
+                    <li>新增最近文件管理、统计信息、窗口状态恢复</li>
+                </ul>
+                <h3>卸载工具 v1.0</h3>
+                <ul>
+                    <li>新增独立卸载工具，支持保留数据卸载和完全卸载两种模式，覆盖 Windows / Linux / macOS</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="2110">
+                <h2>V2.1-1</h2>
+                <p>2026-05-12</p>
+                <p>更新内容：</p>
+                <p><strong>程序内容完全与前一个Release相同</strong></p>
+                <ol>
+                    <li>更新了Release打包方式</li>
+                    <li>编译版本切换至Python3.8</li>
+                    <li>最低支持Windows7系统</li>
+                    <li>新增自解压式安装包</li>
+                    <li>切换打包方式为目录格式</li>
+                    <li>仓库目录结构重构</li>
+                </ol>
+                <ul>
+                    <li>
+                        <p><strong>Green</strong> ：绿色版，直接解压即可使用</p>
+                    </li>
+                    <li>
+                        <p><strong>Setup</strong> ：安装版，运行自解压安装后使用</p>
+                    </li>
+                    <li>
+                        <p><strong>MainApp</strong> 和 <strong>EncodeApp</strong> ：单文件的主程序和名单编码工具</p>
+                    </li>
+                    <li>
+                        <p>( <strong>InstallerMaker</strong> ：自该Release开始启用的自解压打包器，搭配仓库 <code>SFX_config.txt</code> )
+                        </p>
+                    </li>
+                </ul>
+                <p><strong>自该Release起，非特殊情况，本项目可运行于Windows 7、8、8.1、10、11操作系统</strong></p>
+            </div>
+            <hr>
+            <div id="2100">
+                <h2>V2.1</h2>
+                <p>2026-03-14</p>
+                <p>更新内容：</p>
+                <h3>主要功能</h3>
+                <ul>
+                    <li><strong>新增智能抽样功能</strong>：引入 <code>SmartSampler</code>
+                        类，支持<strong>加权抽样</strong>和<strong>抽取前打乱</strong>，提高了抽样的公平性和随机性。</li>
+                    <li><strong>新增抽样历史管理</strong>：记录每个元素的被选中次数，支持<strong>重置历史记录</strong>，便于实现长期均衡的抽取（如避免某些人频繁被抽中）。</li>
+                    <li><strong>新增配置项</strong>：增加了对<strong>加权抽样开关</strong>、<strong>抽取前打乱开关</strong>的配置支持。</li>
+                </ul>
+                <h3>随机抽组</h3>
+                <ul>
+                    <li><strong>新增重置历史按钮</strong>：在界面上增加了“重置历史”按钮，可清除抽样器的历史记录，重新开始公平性计算。</li>
+                    <li><strong>优化历史记录显示</strong>：历史记录现在包含具体抽取的组号和时间戳。</li>
+                </ul>
+                <h3>随机抽人</h3>
+                <ul>
+                    <li><strong>新增重置历史按钮</strong>：同样增加了“重置历史”按钮，用于重置人员抽取的历史记录。</li>
+                    <li><strong>优化文件加载逻辑</strong>：自动加载默认样本时，若有重复名字会给出更明确的提示信息。</li>
+                    <li><strong>优化样本信息显示</strong>：样本加载后，标签颜色变化和提示信息更丰富。</li>
+                </ul>
+                <h3>辅助功能</h3>
+                <ul>
+                    <li><strong>新增使用说明菜单</strong>：在“帮助”菜单中添加了详细的使用说明弹窗。</li>
+                    <li><strong>新增日志管理功能</strong>：在“日志”菜单中增加了“清除日志”功能，可清理非当天的历史日志文件。</li>
+                    <li><strong>增强配置管理</strong>：配置窗口新增了对“抽取前打乱”和“使用加权抽样”的开关选项。</li>
+                </ul>
+                <h3>名单生成工具</h3>
+                <ul>
+                    <li>修复了一些BUG和部分判定条件代码。</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="2000">
+                <h2>V2.0</h2>
+                <p>2026-01-17</p>
+                <p>更新内容：</p>
+                <h3>主要更新</h3>
+                <ul>
+                    <li>新增日志功能</li>
+                    <li>新增配置功能</li>
+                    <li>新增结果保存功能</li>
+                    <li>新增历史记录功能</li>
+                </ul>
+                <h3>随机抽组</h3>
+                <ul>
+                    <li>抽取方法更换为 <code>random.sample</code></li>
+                    <li>同时支持<strong>数字分组</strong>和<strong>字母分组</strong></li>
+                    <li>选择准备页面更新相关判定机制</li>
+                </ul>
+                <h3>随机抽人</h3>
+                <ul>
+                    <li>更新支持的名单文件类型（明文：CSV、TXT；独占编码格式：RCP）</li>
+                    <li>优化加载文件机制，以及相关UI</li>
+                    <li>新增自动删去名单中的重复项功能</li>
+                </ul>
+                <h3>名单生成工具</h3>
+                <ul>
+                    <li>支持将明文的名单文件转换为Base64编码后的RCP名单文件</li>
+                    <li>支持快速Base64与明文互转</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="1000">
+                <h2>V1.0</h2>
+                <p>2026-01-09</p>
+                <p>首次发布，包含基本功能：</p>
+                <h3>随机抽组</h3>
+                <p>支持从1-10个小组中随机抽取1-10个（基于<code>random.randint</code>）</p>
+                <h3>随机抽人</h3>
+                <ul>
+                    <li>支持通过加载txt名单文件并选择抽取人数进行抽取</li>
+                    <li>若程序目录下存在 sample.txt 文件，可以自动加载</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div align="center">
+            <p><a href=".">返回帮助文档首页</a></p>
+            <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
