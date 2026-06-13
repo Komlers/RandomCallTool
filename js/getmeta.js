@@ -1,14 +1,7 @@
 /**
- * getmeta.js — 从远程获取元数据，动态更新蓝奏云下载链接
+ * getmeta.js — 从远程获取元数据，动态更新最新版本数据
  *
- * 降级链（针对国内访问优化）：
- *   1. https://gitee.com/…/raw/…          （Gitee 直连，国内最快，支持 CORS）
- *   2. https://raw.giteeusercontent.com/… （Gitee CDN 加速，备用）
- *   3. https://api.allorigins.win/raw?url=…（CORS 代理兜底，速度较慢但可靠）
- *   4. https://raw.githubusercontent.com/…（GitHub raw，无 CORS 头，作为最后尝试）
- *   全部失败则保留 HTML 中的默认值。
- * 
- * 每个请求超时时间：2 秒
+ * 每个请求超时时间：3 秒
  */
 (async function () {
     "use strict";
@@ -28,6 +21,7 @@
     const pwdEl = document.getElementById("lanzou-pwd");
     const verEl = document.getElementById("meta-version");
     const dateEl = document.getElementById("meta-date");
+    const vcEl = document.getElementById("meta-vercode");
 
     /**
      * 带超时控制的 fetch 请求
@@ -88,6 +82,9 @@
             }
             if (meta.version.date && dateEl) {
                 dateEl.textContent = meta.version.date;
+            }
+            if (meta.version.vercode && vcEl) {
+                vcEl.href = "docs/history.html#" + meta.version.vercode;
             }
         }
         // ── 蓝奏云链接 ──

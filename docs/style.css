@@ -81,6 +81,10 @@ a, a:hover, a:active, a:visited {
     text-decoration: none;
 }
 
+.markdown-body div {
+    scroll-margin-top: 60px;
+}
+
 .sidebar {
     display: none;
     position: fixed;
@@ -130,8 +134,4 @@ a, a:hover, a:active, a:visited {
 
 .sidebar ul ul a:hover {
     background-color: #545b62;
-}
-
-.scroll-offset {
-    scroll-margin-top: 60px;
 }
