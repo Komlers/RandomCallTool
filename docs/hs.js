@@ -25,7 +25,7 @@ document.getElementById("sidebar").innerHTML = `
         <li><a href="2-2.html">配置与快捷键</a></li>
         <li><a href="2-3.html">常见问题与注意事项</a></li>
     </ul>
-    <li><a href="history.html">更新记录</a></li>
+    <li><a href="history.html">版本更新记录</a></li>
 </ul>
 <h3>仓库</h3>
 <ul>
