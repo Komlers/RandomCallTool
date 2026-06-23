@@ -83,7 +83,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">📊</div>
                         <h3>三档抽样模式</h3>
-                        <p>基本抽样（random.sample）、智能抽样（追踪历史降权）、加权抽样（自定义权重），灵活应对不同场景。</p>
+                        <p>基本抽样（内置）、智能抽样（智能降权）、高级抽样（自定义更公平），灵活应对不同场景。</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📚</div>
@@ -154,7 +154,7 @@
                     <div class="mode-card">
                         <h3>模式 0 · 基本抽样</h3>
                         <div class="mode-badge basic">基础</div>
-                        <p>使用 Python 内置的 <code>random.sample</code> 进行简单随机抽取，每个样本被抽中的概率均等。适用于简单的抽选场景。</p>
+                        <p>使用内置的 <code>random.sample</code> 进行简单随机抽取，每个样本被抽中的概率均等。适用于简单的抽选场景。</p>
                     </div>
                     <div class="mode-card">
                         <h3>模式 1 · 智能抽样</h3>
@@ -162,9 +162,9 @@
                         <p>追踪近期抽取历史，自动降低刚被选中项的权重，让每个人都有更均等的机会被抽中。适用于多次连续抽取的场景。</p>
                     </div>
                     <div class="mode-card">
-                        <h3>模式 2 · 加权抽样</h3>
-                        <div class="mode-badge weighted">加权</div>
-                        <p>可为每个样本单独设置权重，权重越高被抽中的概率越大。适用于需要差异化概率的场景。</p>
+                        <h3>模式 2 · 高级抽样</h3>
+                        <div class="mode-badge weighted">高级</div>
+                        <p>利用高级算法，可自定义调整多种高级抽样方式，涵盖自定义权重、预抽取平衡、抽取前打乱等，可以使抽取更加公平</p>
                     </div>
                 </div>
             </div>
