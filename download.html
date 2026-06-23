@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--随机抽取工具下载页面-->
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="随机抽取工具（RandomCallTool）下载页面 - 网盘下载、GitHub Releases、Gitee Releases 以及自行编译指南" />
+        <meta name="keywords" content="RandomCallTool,随机抽取工具,下载,网盘,蓝奏云,GitHub,Gitee,自行编译" />
+        <meta name="author" content="Dan_Evan" />
+        <meta name="robots" content="index,follow" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link type="text/css" href="style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+        <title>软件下载 - 随机抽取工具</title>
+    </head>
+    <body>
+        <div class="header">
+            <b><a href="./" style="color: inherit; text-decoration: none;">随机抽取工具</a></b>
+            <div class="header-right">
+                <a href="docs/">文档</a>
+                <a href="./">首页</a>
+                <a href="https://github.com/ElofHew/RandomCallTool" target="_blank"><img src="icon/github.svg" alt="GitHub" title="GitHub" width="20" /></a>
+                <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank"><img src="icon/gitee.svg" alt="Gitee" title="Gitee" width="20" /></a>
+            </div>
+        </div>
+        <div class="main" id="main">
+            <div class="hero">
+                <h1>软件下载</h1>
+                <p class="subtitle">（仅提供Windows版本）</p>
+                <div class="about-info" style="margin-top: 25px;">
+                    <div class="info-item">
+                        <span class="info-label">最新版本</span>
+                        <span id="meta-version" class="info-value">正在加载...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">发布日期</span>
+                        <span id="meta-date" class="info-value">正在加载...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">开源协议</span>
+                        <span class="info-value">MIT License</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="notice">
+                <h2>下载须知</h2>
+                <div class="notice-box">
+                    <ol>
+                        <li>如果是从安装包更新随机抽取工具，<strong>请先关闭所有“随机抽取工具套件”内的程序</strong>（如：随机抽取工具主程序、名单编码工具等），然后再运行安装包进行安装，否则可能会导致<strong>致命性的错误</strong>（如程序文件完整性损坏、数据丢失等）</li>
+                        <li>如果使用Edge浏览器下载程序时，提示<strong>“通常不会下载xxx……”</strong>，请点击右边的三点，点击<strong>“保留”</strong>。如果出现弹窗进一步推荐你不要保留，请点击“删除”按钮旁边的倒三角，点击<strong>“仍然保留”</strong>。<strong>本程序完全开源，可承诺100%无病毒无恶意代码</strong>。</li>
+                        <li>在Windows10及以上系统中，直接双击打开从互联网下载的exe文件会经过Windows Defender Smartscreen进行病毒扫描。由于本程序封装的安装包没有签名，可能会提示<strong>“未经信任的软件”</strong>，直接点击<strong>“更多信息”→“仍然运行”</strong>即可。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section" id="download">
+                <h2>下载链接</h2>
+                <div class="download-container">
+                    <div class="download-card">
+                        <h3>📦 网盘下载</h3>
+                        <p>适合中国大陆用户，直接从蓝奏云网盘下载exe安装包。</p>
+                        <a id="lanzou-link" href="#download" class="button primary">蓝奏云网盘</a>
+                        <p id="lanzou-pwd" class="download-note">正在获取下载链接……</p>
+                    </div>
+                    <div class="download-card">
+                        <h3>🐙 GitHub</h3>
+                        <p>从 GitHub Releases 访问最新版，获取版本介绍和安装包。</p>
+                        <a href="https://github.com/ElofHew/RandomCallTool/releases/latest" class="button secondary" target="_blank">前往GitHub</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>🐲 Gitee</h3>
+                        <p>从 Gitee Releases 访问最新版，适合国内网络环境访问。</p>
+                        <a href="https://gitee.com/ElofHew/RandomCallTool/releases/latest" class="button secondary" target="_blank">前往Gitee</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="build">
+                <h2>自行编译</h2>
+                <div class="build-content">
+                    <p>如果您想自行编译源代码，请按照以下步骤操作：</p>
+                    <ol>
+                        <li>确保安装了 <strong>Python 3.6+</strong> 环境（推荐 3.8 及以上版本，建议 3.12）。</li>
+                        <li>克隆或下载项目到本地：<a href="https://github.com/ElofHew/RandomCallTool" target="_blank">GitHub</a> 或 <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank">Gitee</a>。</li>
+                        <li>安装 PyInstaller：<code>pip install pyinstaller</code></li>
+                        <li>（仅限Windows）运行构建脚本生成可执行文件：<code>build_standard.bat</code>（标准打包）或 <code>build_onefile.bat</code>（单文件打包）。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Copyright &copy; 2025~2026 ElofHew. All rights reserved.</p>
+                <p class="footer-note">“随机抽取工具” 是基于 “MIT” 开源协议开发的桌面应用程序，请勿用于商业用途。</p>
+            </div>
+        </div>
+        <script src="js/getmeta.js"></script>
+    </body>
+</html>
