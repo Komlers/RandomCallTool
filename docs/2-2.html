@@ -37,42 +37,48 @@
                     <tr><td><kbd>Ctrl+W</kbd></td><td>清除所有历史记录</td></tr>
                     <tr><td><kbd>Ctrl+Shift+R</kbd></td><td>重置抽样历史</td></tr>
                     <tr><td><kbd>Ctrl+,</kbd></td><td>打开配置窗口</td></tr>
-                    <tr><td><kbd>Ctrl+T</kbd></td><td>切换到随机抽取选项卡</td></tr>
+                    <tr><td><kbd>Ctrl+T</kbd></td><td>切换到「随机抽取」选项卡</td></tr>
+                    <tr><td><kbd>Ctrl+P</kbd></td><td>切换到「随机点名」选项卡</td></tr>
                     <tr><td><kbd>Ctrl+L</kbd></td><td>查看日志文件</td></tr>
                 </tbody>
             </table>
             <hr>
             <h2>配置管理</h2>
-            <p>通过菜单栏「编辑 → 配置」（<kbd>Ctrl+,</kbd>）打开多选项卡配置窗口，包含以下设置项：</p>
+            <p>通过菜单栏「编辑 → 配置」（<kbd>Ctrl+,</kbd>）或主页「设置」按钮打开多选项卡配置窗口，包含以下四个选项卡：</p>
             <h3>基本设置</h3>
             <ul>
-                <li><strong>自动保存结果</strong>：抽取完成后自动保存结果文件</li>
-                <li><strong>结果保存位置</strong>：选择结果保存到 <code>data/result</code> 目录或桌面</li>
-                <li><strong>自动加载样本</strong>：启动时自动加载预设的默认样本文件</li>
-                <li><strong>合并重复名字</strong>：加载时自动去除样本中的重复项</li>
+                <li><strong>自动保存抽取结果</strong>：抽取完成后自动保存结果文件</li>
+                <li><strong>结果保存位置</strong>：选择结果保存到「数据目录」或「桌面」</li>
+                <li><strong>启动时自动加载样本（随机抽人）</strong>：启动时自动加载默认样本</li>
+                <li><strong>启动时自动加载名单（随机点名）</strong>：点名名单的自动加载开关，与随机抽人相互独立</li>
+                <li><strong>加载样本时自动合并重复名字</strong>：加载名单时自动去除重复项</li>
+                <li><strong>历史记录条数</strong>：设置历史记录面板保留的最大条数（5~30）</li>
+                <li><strong>默认加载样本</strong>：选择启动时自动加载的样本库文件</li>
             </ul>
             <h3>抽样设置</h3>
             <ul>
-                <li><strong>默认抽样模式</strong>：设置启动时的默认抽样模式（基本 / 智能 / 加权）</li>
-                <li><strong>智能抽样记忆窗口</strong>：调整智能抽样的历史追溯次数</li>
+                <li><strong>抽样模式</strong>：选择默认的抽样模式（基本 / 智能 / 高级）</li>
+                <li><strong>智能模式使用固定权重</strong>：勾选后可在智能模式下自定义权重</li>
+                <li><strong>高级抽取配置</strong>：打开高级抽取配置窗口，设置放回/不放回、抽取优化、加权等详细选项</li>
+                <li><strong>随机点名配置</strong>：打开随机点名设置窗口，设置点名速率、打乱名单、放回/不放回、重置限度等</li>
+                <li><strong>默认值设定</strong>：默认抽取方式（抽人 / 抽组）、抽组默认总数、默认选取数量</li>
             </ul>
             <h3>样本管理</h3>
             <ul>
-                <li>查看已导入样本库的所有名单</li>
-                <li>删除不需要的样本库条目</li>
-                <li>样本库上限：50 个</li>
+                <li>查看已保存的样本库条目（显示名称与文件大小），样本库上限 50 个</li>
+                <li>「导入样本」添加新样本，「打开样本目录」直接打开样本存放目录</li>
+                <li>对单条样本可执行<strong>重命名</strong>、<strong>删除</strong>，以及导出为 <code>TXT</code> / <code>RCP</code></li>
             </ul>
-            <h3>默认值</h3>
+            <h3>更新</h3>
             <ul>
-                <li><strong>默认抽取模式</strong>：随机抽组 / 随机抽人</li>
-                <li><strong>默认抽取数量</strong>：设置每次打开时的默认抽取数量</li>
-                <li><strong>默认组总数</strong>：设置随机抽组的默认总组数</li>
+                <li><strong>版本更新源</strong>：切换检测更新的源（GitHub / Gitee）</li>
+                <li><strong>启动时自动检测更新</strong>：开启/关闭开机自动检测新版本</li>
+                <li><strong>接收测试版更新</strong>：开启后版本检测将同时检查测试版更新</li>
+                <li><strong>当前版本信息</strong>与「立即检查更新」按钮</li>
             </ul>
-            <h3>更新设置</h3>
-            <ul>
-                <li><strong>更新源</strong>：切换检测更新的源（GitHub / Gitee）</li>
-                <li><strong>自动检测更新</strong>：开启/关闭启动时自动检测新版本</li>
-            </ul>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>配置窗口底部提供「确定 / 应用 / 关闭」三个按钮。关闭时若有未应用的更改，程序会询问是否应用。</p>
+            </blockquote>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>

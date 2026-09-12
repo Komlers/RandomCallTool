@@ -19,9 +19,11 @@
 
     const linkEl = document.getElementById("lanzou-link");
     const pwdEl = document.getElementById("lanzou-pwd");
+    const quarkEl = document.getElementById("quark-link");
     const verEl = document.getElementById("meta-version");
     const dateEl = document.getElementById("meta-date");
     const vcEl = document.getElementById("meta-vercode");
+    const preEl = document.getElementById("meta-preview-version");
 
     /**
      * 带超时控制的 fetch 请求
@@ -87,6 +89,14 @@
                 vcEl.href = "docs/history.html#" + meta.version.vercode;
             }
         }
+        // ── 测试版信息 ──
+        if (preEl) {
+            if (meta.preview && meta.preview.version) {
+                preEl.textContent = "v" + meta.preview.version;
+            } else {
+                preEl.textContent = "无可用的测试版";
+            }
+        }
         // ── 蓝奏云链接 ──
         if (meta.lanzou) {
             if (meta.lanzou.download && linkEl) {
@@ -96,6 +106,11 @@
             if (meta.lanzou.password && pwdEl) {
                 pwdEl.textContent = "提取码：" + meta.lanzou.password;
             }
+        }
+        // ── 夸克网盘链接 ──
+        if (meta.quark && meta.quark.download && quarkEl) {
+            quarkEl.href = meta.quark.download;
+            quarkEl.target = "_blank";
         }
     } else {
         console.warn("所有下载元数据源均不可达，保留 HTML 中的默认值");

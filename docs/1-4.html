@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>随机点名操作指南 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>随机点名操作指南</h1>
+            <p>随机点名是「随机抽取」之外的另一个功能，采用<strong>跑马灯</strong>的形式：点击「开始点名」后名单里的名字快速跳动，点击「停止」则<strong>定格显示当前名字</strong>。适用于课堂提问、会议抽人、活动现场点名等场景。</p>
+            <hr>
+            <h2>操作步骤</h2>
+            <h3>① 切换到随机点名选项卡</h3>
+            <p>打开程序后，点击顶部「随机点名」选项卡，或使用快捷键 <kbd>Ctrl+P</kbd>、主页的「点名」按钮进入。</p>
+            <h3>② 加载名单</h3>
+            <p>点名名单与「随机抽人」共用同一个<strong>样本库</strong>，操作方式如下：</p>
+            <ul>
+                <li>在下拉框中选择样本库中的名单，点击「加载」</li>
+                <li>点击「刷新」重新扫描样本库，若当前名单仍在库中会同步重新读取最新内容</li>
+                <li>如果样本库为空，请先通过菜单「文件 → 导入样本到库」（<kbd>Ctrl+I</kbd>）导入名单</li>
+            </ul>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>名单中的<strong>重复名字会自动合并</strong>，超过 10 个字符的名字会被自动截断，以保证跑马灯显示整齐。</p>
+            </blockquote>
+            <h3>③ 开始点名</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>按钮</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>开始点名</strong></td>
+                        <td>手动模式：名字持续快速跳动，点击「停止」定格。若 10 秒内未点击停止，会自动停止以避免长时间滚动</td>
+                    </tr>
+                    <tr>
+                        <td><strong>自动点名</strong></td>
+                        <td>自动模式：以随机速率滚动，约 3 秒后自动停止并定格结果</td>
+                    </tr>
+                    <tr>
+                        <td><strong>停止</strong></td>
+                        <td>定格当前显示的名字；完成后按钮会变为「再点一次」，可直接重新开始</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>④ 点名设置</h3>
+            <p>点击「点名设置」按钮，或通过菜单「编辑 → 配置 → 抽样设置 → 打开随机点名配置」进入点名设置窗口：</p>
+            <ul>
+                <li><strong>名字轮换速率</strong>：范围 0.5x ~ 5.0x，1.0x 为基准速率，数值越大名字切换越快</li>
+                <li><strong>点名前打乱名单顺序</strong>：每次点名开始前先随机打乱名单顺序</li>
+                <li><strong>点名方式</strong>：
+                    <ul>
+                        <li><strong>放回式</strong>：点名后名字仍保留在名单中（默认）</li>
+                        <li><strong>不放回式</strong>：被点到的人会从名单池中移除，避免重复点名</li>
+                    </ul>
+                </li>
+                <li><strong>重置限度</strong>：仅在「不放回式」下生效，当剩余人数 ≤ 限度时自动重置名单池。可选：
+                    <ul>
+                        <li><strong>完全</strong>：名单池抽空后才重置</li>
+                        <li><strong>过半</strong>：剩余人数不足总数一半时重置</li>
+                        <li><strong>自定义</strong>：剩余人数 ≤ 指定人数时重置</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <h2>示例场景</h2>
+            <ul>
+                <li><strong>课堂提问</strong>：加载班级名单，使用「不放回式 + 完全重置」，让每个同学都被抽到一次</li>
+                <li><strong>会议发言</strong>：使用「自动点名」快速产生发言人，无需手动停止</li>
+                <li><strong>活动抽奖</strong>：开启「点名前打乱名单顺序」，保证顺序随机不可预测</li>
+            </ul>
+            <hr>
+            <h2>小贴士</h2>
+            <ul>
+                <li>点名结果会写入程序运行日志（菜单「日志 → 查看日志」，<kbd>Ctrl+L</kbd>），便于事后核对</li>
+                <li>「不放回式」中途重新加载名单会重置名单池</li>
+                <li>点名名单的自动加载由配置中的「启动时自动加载名单（随机点名）」单独控制，与「随机抽人」的自动加载互不影响</li>
+            </ul>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

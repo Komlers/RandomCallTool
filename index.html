@@ -9,8 +9,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="description" content="随机抽取工具（RandomCallTool），是一个基于Python3 + tkinter的桌面应用程序，支持随机抽组和随机抽人，内置三档可切换的抽样模式。基于MIT License开源，支持Windows、Linux、macOS等操作系统，代码托管于GitHub和Gitee，欢迎您下载和使用。" />
-        <meta name="keywords" content="RandomCallTool,随机抽取工具,随机抽组,随机抽人,Dan_Evan,ElofHew,Python,tkinter,开源,GitHub,Gitee" />
+        <meta name="description" content="随机抽取工具（RandomCallTool），是一个基于Python3 + tkinter的桌面应用程序，支持随机抽组、随机抽人和随机点名，内置三档可切换的抽样模式，并配套独立的更新程序与卸载工具。基于MIT License开源，支持Windows、Linux、macOS等操作系统，代码托管于GitHub和Gitee，欢迎您下载和使用。" />
+        <meta name="keywords" content="RandomCallTool,随机抽取工具,随机抽组,随机抽人,随机点名,Dan_Evan,ElofHew,Python,tkinter,开源,GitHub,Gitee" />
         <meta name="author" content="Dan_Evan" />
         <meta name="robots" content="index,follow" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -47,9 +47,9 @@
             <div class="section" id="about">
                 <h2>简介</h2>
                 <div class="about-content">
-                    <p>随机抽取工具（RandomCallTool）是一个基于 <strong>Python3 + tkinter</strong> 的桌面应用程序，拥有 <strong>随机抽组</strong> 和 <strong>随机抽人</strong> 两大核心功能。</p>
-                    <p>主程序提供三档可切换的抽样模式（基本抽样 / 智能抽样 / 加权抽样），并支持样本库管理、历史记录、快捷键操作等丰富特性。</p>
-                    <p>配套的 <strong>名单编码工具（EncodeTool）</strong> 用于将明文名单编码为 RCP 文件，供主程序的"随机抽人"功能使用。</p>
+                    <p>随机抽取工具（RandomCallTool）是一个基于 <strong>Python3 + tkinter</strong> 的桌面应用程序，拥有 <strong>随机抽组</strong>、<strong>随机抽人</strong>、<strong>随机点名</strong> 三大核心功能。</p>
+                    <p>主程序内置三档可切换的抽样模式（基本抽样 / 智能抽样 / 高级抽样），并支持样本库管理、历史记录、快捷键操作等丰富特性。</p>
+                    <p>项目还配套独立的 <strong>更新程序</strong> 与 <strong>卸载工具</strong>；更新程序支持 GitHub / Gitee 双更新源，并提供夸克网盘、蓝奏云等备用下载方式。</p>
                     <div class="about-info">
                         <div class="info-item">
                             <span class="info-label">最新版本</span>
@@ -62,6 +62,10 @@
                         <div class="info-item">
                             <span class="info-label">开源协议</span>
                             <span class="info-value">MIT License</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">最新测试版</span>
+                            <span id="meta-preview-version" class="info-value">正在加载...</span>
                         </div>
                     </div>
                 </div>
@@ -81,9 +85,19 @@
                         <p>支持从样本文件（.rcp / .txt / .csv）或样本库中随机抽取指定数量的人名。</p>
                     </div>
                     <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>随机点名</h3>
+                        <p>跑马灯式点名，名字快速跳动后点击「停止」定格；支持自动点名与点名优化。</p>
+                    </div>
+                    <div class="feature-card">
                         <div class="feature-icon">📊</div>
                         <h3>三档抽样模式</h3>
                         <p>基本抽样（内置）、智能抽样（智能降权）、高级抽样（自定义更公平），灵活应对不同场景。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>自定义权重</h3>
+                        <p>可为名单中的每个样本单独设置权重，权重越高被抽中的概率越大，抽取概率完全可控。</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📚</div>
@@ -102,8 +116,13 @@
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔄</div>
-                        <h3>自动检测更新</h3>
-                        <p>启动时静默检测 GitHub / Gitee 新版本，发现新版本时弹窗提示下载。</p>
+                        <h3>独立更新程序</h3>
+                        <p>支持 GitHub / Gitee 双更新源，可直接下载安装包，也可选择夸克网盘、蓝奏云等备用网盘。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧹</div>
+                        <h3>卸载工具</h3>
+                        <p>三种卸载模式（保留数据 / 重置配置 / 完全卸载），并自动清理开始菜单与桌面快捷方式。</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">⌨️</div>
@@ -120,6 +139,7 @@
 
             <div class="section" id="screenshots">
                 <h2>界面截图</h2>
+                <p style="text-align: center; color: #888; font-size: 14px;">以下截图截取自 2.3 版本，当前版本界面可能有所不同。</p>
                 <div class="gallery-container">
                     <div class="gallery-item">
                         <a href="img/img1.png" target="_blank">
@@ -138,12 +158,6 @@
                             <img src="img/img3.png" alt="随机抽人" />
                         </a>
                         <p>随机抽人功能</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="img/img4.png" target="_blank">
-                            <img src="img/img4.png" alt="编码工具" />
-                        </a>
-                        <p>名单编码工具</p>
                     </div>
                 </div>
             </div>
@@ -165,27 +179,6 @@
                         <h3>模式 2 · 高级抽样</h3>
                         <div class="mode-badge weighted">高级</div>
                         <p>利用高级算法，可自定义调整多种高级抽样方式，涵盖自定义权重、预抽取平衡、抽取前打乱等，可以使抽取更加公平</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section" id="encode-tool">
-                <h2>名单编码工具</h2>
-                <div class="encode-content">
-                    <p>随机抽人名单编码工具（EncodeTool）是 RandomCallTool 的配套工具，用于将明文名单编码为 <strong>.rcp 文件</strong>，供主程序的"随机抽人"功能使用。</p>
-                    <div class="features-container">
-                        <div class="feature-card small">
-                            <h3>编码转换</h3>
-                            <p>支持 Base64 和 Hex 两种编码方式，灵活选择。</p>
-                        </div>
-                        <div class="feature-card small">
-                            <h3>批量处理</h3>
-                            <p>支持对整个目录下的 .txt 文件进行批量编码或批量解码测试。</p>
-                        </div>
-                        <div class="feature-card small">
-                            <h3>命令行模式</h3>
-                            <p>支持命令行参数直接指定文件、批量目录、编码方式等。</p>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -18,10 +18,11 @@ document.getElementById("sidebar").innerHTML = `
         <li><a href="1-1.html">随机抽组操作指南</a></li>
         <li><a href="1-2.html">随机抽人操作指南</a></li>
         <li><a href="1-3.html">抽样模式详解</a></li>
+        <li><a href="1-4.html">随机点名操作指南</a></li>
     </ul>
-    <li><a href="#">编码工具及更多</a></li>
+    <li><a href="#">工具与更多</a></li>
     <ul>
-        <li><a href="2-1.html">名单编码工具说明</a></li>
+        <li><a href="2-1.html">更新与卸载工具说明</a></li>
         <li><a href="2-2.html">配置与快捷键</a></li>
         <li><a href="2-3.html">常见问题与注意事项</a></li>
     </ul>

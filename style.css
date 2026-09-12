@@ -421,9 +421,9 @@ a, a:hover, a:active, a:visited {
     padding: 25px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    max-width: 280px;
+    max-width: 400px;
     min-width: 240px;
-    flex: 0 1 calc(33.333% - 30px);
+    flex: 0 1 calc(50% - 30px);
     box-sizing: border-box;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
