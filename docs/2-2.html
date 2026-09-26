@@ -71,14 +71,14 @@
             </ul>
             <h3>提醒</h3>
             <ul>
-                <li><strong>提醒方式</strong>：选择抽取 / 点名完成后的提醒方式
+                <li><strong>提醒方式</strong>：选择<strong>随机抽取</strong>完成后的提醒方式（随机点名不触发提醒）
                     <ul>
                         <li><strong>弹窗提醒</strong>：弹出结果窗口（默认）</li>
                         <li><strong>ClassIsland 通知</strong>：通过 IslandMQ 插件把结果推送到教室电脑</li>
                     </ul>
                 </li>
                 <li><strong>主机 IP / 端口</strong>：教室电脑的地址（默认 <code>127.0.0.1:5555</code>）</li>
-                <li><strong>通知标题</strong>：推送内容中的遮罩文本；留空时抽取自动用「随机抽取结果」、点名自动用「随机点名结果」</li>
+                <li><strong>通知标题</strong>：推送内容中的遮罩文本；留空时自动使用「随机抽取结果」</li>
                 <li><strong>遮罩时长 / 正文时长</strong>：标题遮罩与正文通知的显示时长（秒，默认 1 秒 / 3 秒）</li>
                 <li><strong>发送失败时改用弹窗提醒</strong>：教室电脑不在线时仍能看到结果</li>
                 <li><strong>连接测试 / 发送测试通知</strong>：验证与 ClassIsland 的连通性和显示效果</li>
@@ -91,6 +91,7 @@
                         <li><strong>左键单击</strong>：立即执行当前选定的抽取操作（默认抽 1 个人）</li>
                         <li><strong>右键菜单</strong>：预设左键要执行的操作（抽字母组 / 抽数字组 / 抽人）与抽取数量（1~8 个）</li>
                         <li>拖动可调整位置，程序会自动记住</li>
+                        <li><strong>悬浮球大小</strong>：三档可选（小 / 中 / 大，默认「中」），也可在悬浮球右键菜单中快速切换</li>
                     </ul>
                 </li>
                 <li><strong>关闭窗口后保留系统托盘</strong>：关闭主窗口后程序继续在托盘中运行；取消勾选则任何退出操作都会完全退出</li>
