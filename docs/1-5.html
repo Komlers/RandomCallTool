@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>桌面悬浮球与系统托盘 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>桌面悬浮球与系统托盘</h1>
+            <p>这两项桌面常驻功能都可在「配置 → 桌面集成」中分别开关，默认均为开启。</p>
+            <hr>
+            <h2>桌面悬浮球</h2>
+            <p>启用后，桌面上会出现一个半透明的圆形按钮并始终置顶显示，方便在不切换窗口的情况下快速抽取。</p>
+            <h3>① 左键单击</h3>
+            <p>左键单击悬浮球，会立即执行<strong>当前选定的操作</strong>（默认是<strong>抽 1 个人</strong>），结果与主界面抽取完全一致：同样会写入历史记录、按「配置 → 提醒」的设置提醒，并按需自动保存结果。</p>
+            <h3>② 右键菜单</h3>
+            <p>右键单击悬浮球打开菜单，用来<strong>预设下一次左键单击要执行的操作</strong>：</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>菜单项</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>抽字母组</td><td>将左键操作设为从 A、B、C… 中抽组</td></tr>
+                    <tr><td>抽数字组</td><td>将左键操作设为从 1、2、3… 中抽组</td></tr>
+                    <tr><td>抽人</td><td>将左键操作设为从已加载的名单中抽人</td></tr>
+                    <tr><td>抽取数量 ▸</td><td>展开子菜单，选择每次抽取 1~8 个</td></tr>
+                </tbody>
+            </table>
+            <p>例如：右键选择「抽人」和「抽 3 个」后，之后每次左键单击都会抽取 3 个人，直到再次修改。</p>
+            <h3>③ 拖动位置</h3>
+            <p>按住悬浮球拖动即可移动位置，程序会自动记住拖动后的位置，下次启动仍会出现在该处。拖动不会触发抽取，只有「原地单击」才会执行。</p>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>抽组的组数取自「配置 → 抽样设置 → 默认值设定 → 抽组默认总数」，与主界面保持一致。</p>
+            </blockquote>
+            <hr>
+            <h2>系统托盘</h2>
+            <p>托盘功能让程序在关闭主窗口后仍可继续在后台运行，随时从任务栏通知区唤回。</p>
+            <h3>① 关闭窗口后保留系统托盘</h3>
+            <p>勾选后，点击主窗口右上角的关闭按钮<strong>不会退出程序</strong>，而是把主界面隐藏到托盘继续运行；再次双击托盘图标（或使用托盘菜单「显示主界面」）即可唤回。</p>
+            <p>取消勾选后，程序不再驻留托盘 —— 此时<strong>任何退出操作都会完全退出程序</strong>，不会出现窗口消失但程序仍在后台的情况。</p>
+            <h3>② 启动后直接后台驻留托盘</h3>
+            <p>勾选后，程序启动时不会显示主界面，而是直接在托盘中静默运行，适合开机自启等场景。</p>
+            <h3>③ 托盘右键菜单</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>菜单项</th>
+                        <th>功能</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>显示主界面</td><td>显示并前置主窗口</td></tr>
+                    <tr><td>软件配置</td><td>显示主窗口并打开配置窗口</td></tr>
+                    <tr><td>检测更新</td><td>启动独立更新程序</td></tr>
+                    <tr><td>显示悬浮球</td><td>切换桌面悬浮球的显示 / 隐藏（带勾选标记）</td></tr>
+                    <tr><td>退出</td><td>完全退出程序（同时关闭悬浮球与托盘）</td></tr>
+                </tbody>
+            </table>
+            <hr>
+            <h2>注意事项</h2>
+            <ul>
+                <li>主界面的「退出」按钮会<strong>完全退出</strong>程序（包括托盘与悬浮球），因此点击后会弹出确认提示。</li>
+                <li>托盘与悬浮球依赖 <code>pystray</code> 与 <code>Pillow</code>。未安装时托盘不可用，程序会自动改为「关闭窗口即询问是否退出」。</li>
+                <li>若在运行中关闭了托盘功能，程序会自动把主界面显示回来，避免窗口被隐藏后无法唤出。</li>
+            </ul>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

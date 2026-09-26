@@ -19,6 +19,7 @@ document.getElementById("sidebar").innerHTML = `
         <li><a href="1-2.html">随机抽人操作指南</a></li>
         <li><a href="1-3.html">抽样模式详解</a></li>
         <li><a href="1-4.html">随机点名操作指南</a></li>
+        <li><a href="1-5.html">悬浮球与系统托盘</a></li>
     </ul>
     <li><a href="#">工具与更多</a></li>
     <ul>
