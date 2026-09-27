@@ -57,6 +57,9 @@
             <blockquote class="markdown-alert markdown-alert-tip">
                 <p>如果样本库为空，使用「选择文件」打开名单时，程序会询问是否将该文件一并导入到样本库。选择「是」即可直接接着导入流程完成入库，无需再手动执行一次导入。</p>
             </blockquote>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p><strong>名单读取限制</strong>：为避免超大文件造成卡顿，程序最多只读取文件的前 <strong>8MB</strong>、最多 <strong>1000</strong> 个名字；每个名字会自动去掉首尾空白并截断到 <strong>20 个字符</strong>（随机点名另有更短的 10 字符限制）。触发限制时会在提示中说明。</p>
+            </blockquote>
             <h3>③ 设置抽取参数</h3>
             <ul>
                 <li><strong>抽取数量</strong>：设置要抽取的人数（不能超过样本总数）</li>
@@ -64,6 +67,9 @@
             </ul>
             <h3>④ 执行抽取</h3>
             <p>点击「抽取」按钮或按 <kbd>Ctrl+Enter</kbd> 进行随机抽取。结果会展示在程序窗口右侧的历史记录面板中，同时按「配置 → 提醒」的设置弹出结果窗口，或通过 IslandMQ 推送 ClassIsland 通知。</p>
+            <blockquote class="markdown-alert markdown-alert-important">
+                <p><strong>结果超过 10 个时</strong>：提醒窗口与 ClassIsland 通知只会显示前 10 个（其余省略），程序会把<strong>完整结果强制保存为 HTML</strong>并写入历史记录文件，然后弹窗提醒并自动打开该 HTML，以便查看完整结果。参见 <a href="2-3.html">常见问题与注意事项</a>。</p>
+            </blockquote>
             <h3>⑤ 结果管理</h3>
             <ul>
                 <li><kbd>Ctrl+S</kbd> — 保存最新一条抽取结果</li>
