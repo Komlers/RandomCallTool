@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>更新与卸载工具说明 - 随机抽取工具 帮助文档</title>
+    <title>独立更新程序 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -15,34 +15,30 @@
     <script src="hs.js"></script>
     <div class="container">
         <div class="markdown-body">
-            <h1>更新与卸载工具说明</h1>
-            <p>随机抽取工具套件除主程序 <code>rctool.exe</code> 外，还包含两个独立的小工具：<strong>更新程序 <code>update.exe</code></strong> 与 <strong>卸载工具 <code>remove.exe</code></strong>。两者均可独立运行，也可由主程序调用。</p>
+            <h1>独立更新程序</h1>
+            <p>更新程序 <code>update.exe</code> 是套件中独立的小工具，可独立运行，也可由主程序调用，用于检测并更新到新版本。</p>
             <hr>
-            <h2>更新程序（update.exe）</h2>
-            <h3>打开方式</h3>
+            <h2>打开方式</h2>
             <ul>
                 <li>主程序主页点击「更新」按钮</li>
                 <li>菜单「工具 → 检测更新」</li>
                 <li>配置窗口「更新」选项卡 → 「立即检查更新」</li>
                 <li>程序启动时自动检测（可在配置中关闭）</li>
             </ul>
-            <h3>更新源</h3>
+            <h2>更新源</h2>
             <p>更新程序支持 <strong>GitHub</strong> 与 <strong>Gitee</strong> 两个更新源，可在更新程序首页或配置窗口「更新」选项卡中切换：</p>
             <ul>
                 <li><strong>Gitee</strong>：中国大陆网络环境推荐</li>
                 <li><strong>GitHub</strong>：其他地区推荐</li>
             </ul>
-            <h3>测试版更新</h3>
+            <h2>测试版更新</h2>
             <p>勾选「接收测试版更新」后，版本检测会同时检查测试版（Beta）更新。该选项在主程序配置窗口「更新」选项卡与更新程序首页均可设置。</p>
-            <h3>界面显示</h3>
+            <h2>界面显示</h2>
             <p>更新程序各页面采用统一的微软雅黑字阶与卡片式信息排列，主按钮、次要按钮风格统一，进度条配色与整体淡蓝风格一致，检测中页面内容居中显示。</p>
-            <h3>检测结果</h3>
+            <h2>检测结果</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>状态</th>
-                        <th>可用操作</th>
-                    </tr>
+                    <tr><th>状态</th><th>可用操作</th></tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -61,53 +57,16 @@
                     </tr>
                 </tbody>
             </table>
-            <p>更新程序实际比较的是<strong>版本代码（vercode）</strong>而不是版本号文本，其含义与编码规则详见 <a href="version.html">版本号规则说明</a>。</p>
+            <p>更新程序实际比较的是<strong>版本代码（vercode）</strong>而不是版本号文本，其含义与编码规则详见 <a href="3-1.html">版本号命名规则</a>。</p>
             <blockquote class="markdown-alert markdown-alert-important">
                 <p>更新前请先关闭「随机抽取工具套件」内的所有程序（主程序、更新程序等），否则可能因文件占用导致安装失败，进而造成程序完整性损坏或数据丢失。</p>
             </blockquote>
-            <hr>
-            <h2>卸载工具（remove.exe）</h2>
-            <p>卸载工具提供三种模式，运行时需先选择模式并二次确认，操作<strong>不可撤销</strong>。</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>模式</th>
-                        <th>说明</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>保留数据</strong></td>
-                        <td>仅删除程序文件，保留数据配置和桌面结果</td>
-                    </tr>
-                    <tr>
-                        <td><strong>重置配置</strong></td>
-                        <td>仅删除数据配置和日志，保留程序文件</td>
-                    </tr>
-                    <tr>
-                        <td><strong>完全卸载</strong></td>
-                        <td>删除所有文件（包括程序、数据、配置、日志）</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>额外清理项</h3>
-            <p>除程序目录外，执行「保留数据」或「完全卸载」时，卸载工具还会一并清理以下内容：</p>
-            <ul>
-                <li>开始菜单中的程序组文件夹（「随机抽取工具」/「随机抽取工具套件」，当前用户与所有用户）</li>
-                <li>桌面快捷方式（当前用户桌面与公共桌面）</li>
-                <li>开机自启复制到启动文件夹的快捷方式（公共启动文件夹与当前用户启动文件夹）</li>
-            </ul>
-            <blockquote class="markdown-alert markdown-alert-note">
-                <p>卸载前请确保已备份重要数据。程序不会自动备份配置与结果文件。</p>
-            </blockquote>
-            <hr>
-            <h2>关于名单编码工具</h2>
-            <p>自 <strong>V2.5.2</strong> 起，原先配套的「名单编码工具（EncodeTool）」已从套件中移除。日常使用可直接导入 <code>.txt</code> / <code>.csv</code> 名单；如需 <code>.rcp</code> 文件，可将明文名单按 <strong>Base64</strong> 编码后另存为 <code>.rcp</code>，或先将名单导入样本库，再在「配置 → 样本管理」中导出为 <code>.rcp</code>。</p>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>

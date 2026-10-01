@@ -86,7 +86,7 @@
                 dateEl.textContent = meta.version.date;
             }
             if (meta.version.vercode && vcEl) {
-                vcEl.href = "docs/history.html#" + meta.version.vercode;
+                vcEl.href = "docs/3-2.html#" + meta.version.vercode;
             }
         }
         // ── 测试版信息 ──

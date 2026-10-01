@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>随机点名操作指南 - 随机抽取工具 帮助文档</title>
+    <title>软件配置详细详解 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -15,84 +15,110 @@
     <script src="hs.js"></script>
     <div class="container">
         <div class="markdown-body">
-            <h1>随机点名操作指南</h1>
-            <p>随机点名是「随机抽取」之外的另一个功能，采用<strong>跑马灯</strong>的形式：点击「开始点名」后名单里的名字快速跳动，点击「停止」则<strong>定格显示当前名字</strong>。适用于课堂提问、会议抽人、活动现场点名等场景。</p>
+            <h1>软件配置详细详解</h1>
+            <p>通过菜单栏「编辑 → 配置」（<kbd>Ctrl+,</kbd>）或主页「设置」按钮打开多选项卡配置窗口，以下按选项卡逐项详解。</p>
             <hr>
-            <h2>操作步骤</h2>
-            <h3>① 切换到随机点名选项卡</h3>
-            <p>打开程序后，点击顶部「随机点名」选项卡，或使用快捷键 <kbd>Ctrl+P</kbd>、主页的「点名」按钮进入。</p>
-            <h3>② 加载名单</h3>
-            <p>点名名单与「随机抽人」共用同一个<strong>样本库</strong>，操作方式如下：</p>
+            <h2>基本设置</h2>
             <ul>
-                <li>在下拉框中选择样本库中的名单，点击「加载」</li>
-                <li>点击「刷新」重新扫描样本库，若当前名单仍在库中会同步重新读取最新内容</li>
-                <li>如果样本库为空，请先通过菜单「文件 → 导入样本到库」（<kbd>Ctrl+I</kbd>）导入名单</li>
+                <li><strong>自动保存抽取结果</strong>：抽取完成后自动保存结果文件</li>
+                <li><strong>结果保存位置</strong>：选择结果保存到「数据目录」或「桌面」</li>
+                <li><strong>启动时自动加载样本（随机抽人）</strong>：启动时自动加载默认样本</li>
+                <li><strong>启动时自动加载名单（随机点名）</strong>：点名名单的自动加载开关，与随机抽人相互独立</li>
+                <li><strong>加载样本时自动合并重复名字</strong>：加载名单时自动去除重复项</li>
+                <li><strong>历史记录条数</strong>：设置历史记录面板保留的最大条数（5~30）</li>
+                <li><strong>把抽取历史实时写入本地文件</strong>：每次抽取追加一行到 <code>data/history/YYYY-MM-DD.txt</code>（按日期分文件），并用旁边的「打开记录目录」按钮快速访问</li>
+                <li><strong>默认加载样本</strong>：选择启动时自动加载的样本库文件</li>
             </ul>
-            <blockquote class="markdown-alert markdown-alert-note">
-                <p>名单中的<strong>重复名字会自动合并</strong>，超过 10 个字符的名字会被自动截断，以保证跑马灯显示整齐。</p>
+            <h2>抽样设置</h2>
+            <ul>
+                <li><strong>抽样模式</strong>：选择默认的抽样模式（基本 / 智能 / 高级）</li>
+                <li><strong>智能模式使用固定权重</strong>：勾选后可在智能模式下自定义权重</li>
+                <li><strong>高级抽取配置</strong>：打开高级抽取配置窗口，设置放回/不放回、抽取优化、加权等详细选项</li>
+                <li><strong>随机点名配置</strong>：打开随机点名设置窗口，设置点名速率、打乱名单、放回/不放回、重置限度等</li>
+                <li><strong>默认值设定</strong>：默认抽取方式（抽人 / 抽组）、抽组默认总数、默认选取数量</li>
+            </ul>
+            <h2>样本管理</h2>
+            <ul>
+                <li>查看已保存的样本库条目（显示名称与文件大小），样本库上限 50 个</li>
+                <li>「导入样本」添加新样本，「打开样本目录」直接打开样本存放目录</li>
+                <li>对单条样本可执行<strong>重命名</strong>、<strong>删除</strong>，以及导出为 <code>TXT</code> / <code>RCP</code></li>
+            </ul>
+            <h2>提醒</h2>
+            <ul>
+                <li><strong>提醒方式</strong>：选择<strong>随机抽取</strong>完成后的提醒方式（随机点名不触发提醒）
+                    <ul>
+                        <li><strong>弹窗提醒</strong>：弹出结果窗口（默认）</li>
+                        <li><strong>ClassIsland 通知</strong>：通过 IslandMQ 插件把结果推送到教室电脑</li>
+                    </ul>
+                </li>
+                <li><strong>主机 IP / 端口</strong>：教室电脑的地址（默认 <code>127.0.0.1:5555</code>）</li>
+                <li><strong>通知标题</strong>：推送内容中的遮罩文本；留空时自动使用「随机抽取结果」</li>
+                <li><strong>遮罩时长 / 正文时长</strong>：标题遮罩与正文通知的显示时长（秒，默认 1 秒 / 3 秒）</li>
+                <li><strong>发送失败时改用弹窗提醒</strong>：教室电脑不在线时仍能看到结果</li>
+                <li><strong>连接测试 / 发送测试通知</strong>：验证与 ClassIsland 的连通性和显示效果</li>
+            </ul>
+            <h2>桌面集成</h2>
+            <p>悬浮球、系统托盘与开机自启的开关集中在此选项卡，各项的详细用法（含右键菜单、UAC 提权等）参见 <a href="1-3.html">悬浮球与桌面集成</a>。</p>
+            <h2>更新</h2>
+            <ul>
+                <li><strong>版本更新源</strong>：切换检测更新的源（GitHub / Gitee）</li>
+                <li><strong>启动时自动检测更新</strong>：开启/关闭开机自动检测新版本</li>
+                <li><strong>接收测试版更新</strong>：开启后版本检测将同时检查测试版更新</li>
+                <li><strong>当前版本信息</strong>与「立即检查更新」按钮</li>
+            </ul>
+            <p>关于版本号与版本代码的含义及其命名规则，参见 <a href="3-1.html">版本号命名规则</a>。</p>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>配置窗口底部提供「确定 / 应用 / 关闭」三个按钮。关闭时若有未应用的更改，程序会询问是否应用。</p>
             </blockquote>
-            <h3>③ 开始点名</h3>
+            <hr>
+            <h2>命令行参数（启动时加载自定义权重）</h2>
+            <p>主程序支持通过命令行参数在启动时直接应用自定义权重，适合脚本、自动化任务或自定义快捷方式调用。</p>
+            <h3>参数说明</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>按钮</th>
-                        <th>说明</th>
-                    </tr>
+                    <tr><th>参数</th><th>说明</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>开始点名</strong></td>
-                        <td>手动模式：名字持续快速跳动，点击「停止」定格。若 10 秒内未点击停止，会自动停止以避免长时间滚动</td>
-                    </tr>
-                    <tr>
-                        <td><strong>自动点名</strong></td>
-                        <td>自动模式：在 1.0x ~ 3.0x 中随机取一个速率，并在 2 ~ 3 秒内随机定下一个时长，到时自动停止并定格结果</td>
-                    </tr>
-                    <tr>
-                        <td><strong>停止</strong></td>
-                        <td>定格当前显示的名字；完成后按钮会变为「再点一次」，可直接重新开始</td>
-                    </tr>
+                    <tr><td><code>--weight-set &lt;名字&gt; &lt;权重&gt;</code></td><td>设置一条权重，可重复出现；出现该参数即开启自定义权重</td></tr>
+                    <tr><td><code>-lib &lt;样本库名&gt;</code></td><td>仅加载样本库中指定样本时生效，可重复或使用列表</td></tr>
+                    <tr><td><code>-file &lt;文件名或路径&gt;</code></td><td>仅指定外部文件生效；启动时自动加载第一个存在的文件</td></tr>
                 </tbody>
             </table>
-            <p>点名结果会以大字直接显示在界面中，因此<strong>不会</strong>再弹出提醒窗口或推送 ClassIsland 通知。若需要把结果推送到教室电脑，请使用「随机抽取」功能。</p>
-            <h3>④ 点名设置</h3>
-            <p>点击「点名设置」按钮，或通过菜单「编辑 → 配置 → 抽样设置 → 打开随机点名配置」进入点名设置窗口：</p>
+            <h3>名称列表</h3>
+            <p>权重名字与 <code>-lib</code> / <code>-file</code> 的目标均支持 JSON 风格列表（整体用单引号包裹，避免与外层引号冲突）：</p>
+            <pre>--weight-set '["测试样本12","测试样本13"]' 20.00</pre>
+            <p>列表内各项使用同一权重；若要为不同名字设置不同权重，重复书写多个 <code>--weight-set</code>。</p>
+            <h3>目标范围</h3>
             <ul>
-                <li><strong>名字轮换速率</strong>：范围 0.5x ~ 5.0x，1.0x 为基准速率，数值越大名字切换越快</li>
-                <li><strong>点名前打乱名单顺序</strong>：每次点名开始前先随机打乱名单顺序</li>
-                <li><strong>点名方式</strong>：
+                <li>不写 <code>-lib</code> / <code>-file</code>：任何已加载样本中只要存在该名字即设置权重</li>
+                <li><code>-lib</code>：仅样本库中指定样本被加载时生效</li>
+                <li><code>-file</code>：
                     <ul>
-                        <li><strong>放回式</strong>：点名后名字仍保留在名单中（默认）</li>
-                        <li><strong>不放回式</strong>：被点到的人会从名单池中移除，避免重复点名</li>
-                    </ul>
-                </li>
-                <li><strong>重置限度</strong>：仅在「不放回式」下生效，当剩余人数 ≤ 限度时自动重置名单池。可选：
-                    <ul>
-                        <li><strong>完全</strong>：名单池抽空后才重置</li>
-                        <li><strong>过半</strong>：剩余人数不足总数一半时重置</li>
-                        <li><strong>自定义</strong>：剩余人数 ≤ 指定人数时重置</li>
+                        <li>值为纯文件名（如 <code>demo.txt</code>）：任何路径下的同名文件都生效</li>
+                        <li>值带路径（如 <code>D:\demo\demo.txt</code>）：仅该具体文件生效</li>
                     </ul>
                 </li>
             </ul>
+            <h3>示例</h3>
+            <pre>rctool.exe --weight-set "测试样本12" 20.00
+rctool.exe --weight-set "测试样本12" 20.00 -lib "测试样本文件"
+rctool.exe --weight-set '["测试样本12","测试样本13"]' 20.00 -file "demo.txt"</pre>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>参数本身的错误（权重值不是数字、为负数、参数缺值、未知参数等）只写入运行日志，不弹出前端窗口；异常部分忽略，程序正常启动。</p>
+            </blockquote>
             <hr>
-            <h2>示例场景</h2>
+            <h2>退出程序</h2>
+            <p>根据托盘设置的不同，退出行为有所区别：</p>
             <ul>
-                <li><strong>课堂提问</strong>：加载班级名单，使用「不放回式 + 完全重置」，让每个同学都被抽到一次</li>
-                <li><strong>会议发言</strong>：使用「自动点名」快速产生发言人，无需手动停止</li>
-                <li><strong>活动抽奖</strong>：开启「点名前打乱名单顺序」，保证顺序随机不可预测</li>
-            </ul>
-            <hr>
-            <h2>小贴士</h2>
-            <ul>
-                <li>点名结果会写入程序运行日志（菜单「日志 → 查看日志」，<kbd>Ctrl+L</kbd>），便于事后核对</li>
-                <li>「不放回式」中途重新加载名单会重置名单池</li>
-                <li>点名名单的自动加载由配置中的「启动时自动加载名单（随机点名）」单独控制，与「随机抽人」的自动加载互不影响</li>
+                <li><strong>托盘已启用</strong>：点击窗口关闭按钮会隐藏到托盘；主页「退出」按钮、菜单「文件 → 退出」或托盘菜单「退出」则会完全退出程序。</li>
+                <li><strong>托盘已关闭</strong>：所有退出操作（包括关闭窗口）都会完全退出程序，并弹出确认提示。</li>
             </ul>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>

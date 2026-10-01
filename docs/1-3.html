@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>抽样模式详解 - 随机抽取工具 帮助文档</title>
+    <title>悬浮球与桌面集成 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -15,123 +15,76 @@
     <script src="hs.js"></script>
     <div class="container">
         <div class="markdown-body">
-            <h1>抽样模式详解</h1>
-            <p>随机抽取工具内置三档可切换的抽样模式，满足不同场景下的抽取需求。</p>
+            <h1>悬浮球与桌面集成</h1>
+            <p>桌面悬浮球、系统托盘与开机自启都在「配置 → 桌面集成」中管理，本页集中说明。</p>
             <hr>
-            <h2>模式 0 · 基本抽样</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><strong>说明</strong></td>
-                        <td>使用 Python 内置的 <code>random.sample</code> 进行简单随机抽取</td>
-                    </tr>
-                    <tr>
-                        <td><strong>特点</strong></td>
-                        <td>每个样本被抽中的概率均等，无记忆性</td>
-                    </tr>
-                    <tr>
-                        <td><strong>适用场景</strong></td>
-                        <td>一次性抽选、无需考虑历史记录的场景</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>基本抽样是最简单直接的方式，每次抽取都是独立事件，不会受到之前抽取结果的影响。适合做一次性随机抽选。</p>
-            <hr>
-            <h2>模式 1 · 智能抽样</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><strong>说明</strong></td>
-                        <td>追踪近期抽取历史，自动降低刚被选中项的权重</td>
-                    </tr>
-                    <tr>
-                        <td><strong>特点</strong></td>
-                        <td>具有记忆性，公平性更高，避免同一个人被连续抽中</td>
-                    </tr>
-                    <tr>
-                        <td><strong>适用场景</strong></td>
-                        <td>多次连续抽取、课堂提问、轮值分配等需要公平的场景</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>智能抽样通过维护一个"记忆窗口"来记录最近被抽中的样本。当样本近期被抽中时，其在下一次抽取中的权重会自动降低，从而让其他未被选中的样本有更高的概率被抽中。</p>
-            <p>您可以在配置中调整智能抽样的记忆窗口大小，以控制"近期"的范围。</p>
-            <blockquote class="markdown-alert markdown-alert-tip">
-                <p>如果需要重新开始公平性计算，可以按 <kbd>Ctrl+Shift+R</kbd> 重置抽样历史。</p>
-            </blockquote>
-            <hr>
-            <h2>模式 2 · 高级抽样</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><strong>说明</strong></td>
-                        <td>完整的高级抽取配置，可组合多种高级抽样方式</td>
-                    </tr>
-                    <tr>
-                        <td><strong>特点</strong></td>
-                        <td>可定制程度最高，权重与抽取策略均可自由调整</td>
-                    </tr>
-                    <tr>
-                        <td><strong>适用场景</strong></td>
-                        <td>对公平性、差异性概率有特殊要求的场景</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>高级抽样把「随机抽取」选项卡中「抽样模式」旁的按钮变为「高级」，点击即可打开<strong>高级抽取配置</strong>窗口（也可从「配置 → 抽样设置 → 打开高级抽取配置」进入）。主要可配置项包括：</p>
-            <ul>
-                <li><strong>放回式 / 不放回式抽取</strong>，以及不放回时的调整方法（连续循环 / 整除式 / 比率式）</li>
-                <li><strong>抽取前打乱</strong>：可设置打乱次数与频率</li>
-                <li><strong>预抽取平衡</strong>：抽取前先进行若干次预抽取以平衡概率</li>
-                <li><strong>多次取最值</strong>：多次抽取后取其中最优结果</li>
-                <li><strong>随机定权重</strong>：在指定区间内随机生成权重</li>
-                <li><strong>递进式抽取</strong>与<strong>智能降权/配权</strong></li>
-                <li><strong>自定义权重</strong>：为每个样本单独设置权重，权重越高被抽中的概率越大</li>
-            </ul>
-            <p>例如，可以将核心成员的权重设为 3、普通成员的权重设为 1，这样核心成员被抽中的概率是普通成员的三倍。</p>
-            <p>在权重设置窗口中，权重值必须为不小于 0 的数字。若存在非法输入（非数字、负数、<code>nan</code> / <code>inf</code> 等），点击「应用」时会逐项列出问题项并保持窗口打开，修改正确后再应用，不会写入任何非法值。</p>
-            <hr>
-            <h2>模式对比</h2>
+            <h2>桌面悬浮球</h2>
+            <p>启用后，桌面上会出现一个半透明的圆形按钮并始终置顶显示，方便在不切换窗口的情况下快速抽取。</p>
+            <h3>① 左键单击</h3>
+            <p>左键单击悬浮球，会立即执行<strong>当前选定的操作</strong>（默认是<strong>抽 1 个人</strong>），结果与主界面抽取完全一致：同样会写入历史记录、按「配置 → 提醒」的设置提醒，并按需自动保存结果。</p>
+            <h3>② 右键菜单</h3>
+            <p>右键单击悬浮球打开菜单，用来<strong>预设下一次左键单击要执行的操作</strong>：</p>
             <table>
                 <thead>
-                    <tr>
-                        <th>特性</th>
-                        <th>基本抽样</th>
-                        <th>智能抽样</th>
-                        <th>高级抽样</th>
-                    </tr>
+                    <tr><th>菜单项</th><th>说明</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>记忆性</td>
-                        <td>无</td>
-                        <td>有</td>
-                        <td>无</td>
-                    </tr>
-                    <tr>
-                        <td>公平性</td>
-                        <td>均等</td>
-                        <td>动态公平</td>
-                        <td>按权重</td>
-                    </tr>
-                    <tr>
-                        <td>可定制性</td>
-                        <td>低</td>
-                        <td>中</td>
-                        <td>高</td>
-                    </tr>
-                    <tr>
-                        <td>适用场景</td>
-                        <td>一次性抽取</td>
-                        <td>多次抽取</td>
-                        <td>差异化概率</td>
-                    </tr>
+                    <tr><td>抽取模式 ▸</td><td>选择左键要执行的抽取方式：<strong>抽字母组</strong>（A、B、C…）/ <strong>抽数字组</strong>（1、2、3…）/ <strong>抽人</strong>（已加载的名单）</td></tr>
+                    <tr><td>抽取数量 ▸</td><td>选择每次抽取 1~9 个（数量上限会根据当前模式实际可抽数量自动调整）</td></tr>
+                    <tr><td>悬浮球大小 ▸</td><td>在<strong>小 / 中 / 大</strong>三档之间切换</td></tr>
                 </tbody>
             </table>
+            <p>三个子菜单都是单选，<strong>当前生效的预设会带勾选标记</strong>。例如当预设为「抽人 + 抽 3 个」时，「抽取模式」里的「抽人」和「抽取数量」里的「抽 3 个」都会显示勾选。</p>
+            <p>设定后，之后每次左键单击都会按该预设执行，直到再次修改。</p>
+            <h3>③ 拖动位置与调节大小</h3>
+            <p>按住悬浮球拖动即可移动位置，程序会自动记住拖动后的位置，下次启动仍会出现在该处。拖动不会触发抽取，只有「原地单击」才会执行。</p>
+            <p>大小共三档（<strong>小 / 中 / 大</strong>，默认为「中」），既可在右键菜单的「悬浮球大小」中快速切换，也可在「配置 → 桌面集成 → 悬浮球大小」中设置，两处互相同步。</p>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>抽组的组数取自「配置 → 抽样设置 → 默认值设定 → 抽组默认总数」，与主界面保持一致。</p>
+            </blockquote>
+            <hr>
+            <h2>系统托盘</h2>
+            <p>托盘功能让程序在关闭主窗口后仍可继续在后台运行，随时从任务栏通知区唤回。</p>
+            <h3>① 关闭窗口后保留系统托盘</h3>
+            <p>勾选后，点击主窗口右上角的关闭按钮<strong>不会退出程序</strong>，而是把主界面隐藏到托盘继续运行；再次双击托盘图标（或使用托盘菜单「显示主界面」）即可唤回。</p>
+            <p>取消勾选后，程序不再驻留托盘 —— 此时<strong>任何退出操作都会完全退出程序</strong>，不会出现窗口消失但程序仍在后台的情况。</p>
+            <h3>② 启动后直接后台驻留托盘</h3>
+            <p>勾选后，程序启动时不会显示主界面，而是直接在托盘中静默运行，适合配合开机自启使用。</p>
+            <h3>③ 托盘右键菜单</h3>
+            <table>
+                <thead>
+                    <tr><th>菜单项</th><th>功能</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>显示主界面</td><td>显示并前置主窗口</td></tr>
+                    <tr><td>软件配置</td><td>显示主窗口并打开配置窗口</td></tr>
+                    <tr><td>检测更新</td><td>启动独立更新程序</td></tr>
+                    <tr><td>显示悬浮球</td><td>切换桌面悬浮球的显示 / 隐藏（带勾选标记）</td></tr>
+                    <tr><td>退出</td><td>完全退出程序（同时关闭悬浮球与托盘）</td></tr>
+                </tbody>
+            </table>
+            <hr>
+            <h2>开机自启</h2>
+            <p>在「配置 → 桌面集成」勾选「开机自启」后，开机登录 Windows 时会自动启动主程序。</p>
+            <ul>
+                <li><strong>原理</strong>：把开始菜单中的主程序快捷方式（<code>随机抽取工具.lnk</code>）复制到系统公共启动文件夹（在资源管理器地址栏输入 <code>shell:common startup</code> 即可打开）；取消勾选则删除该快捷方式</li>
+                <li>公共启动文件夹为所有用户共有，普通账户没有写入权限，勾选或取消时会弹出 <strong>UAC 提权请求</strong>，允许后才能完成设置；若拒绝提权则本次设置中止</li>
+                <li>勾选框的初始状态以启动文件夹中快捷方式是否实际存在为准</li>
+                <li>该功能仅支持 <strong>Windows</strong></li>
+            </ul>
+            <hr>
+            <h2>注意事项</h2>
+            <ul>
+                <li>主界面的「退出」按钮会<strong>完全退出</strong>程序（包括托盘与悬浮球），因此点击后会弹出确认提示。</li>
+                <li>托盘与悬浮球依赖 <code>pystray</code> 与 <code>Pillow</code>。未安装时托盘不可用，程序会自动改为「关闭窗口即询问是否退出」。</li>
+                <li>若在运行中关闭了托盘功能，程序会自动把主界面显示回来，避免窗口被隐藏后无法唤出。</li>
+            </ul>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>

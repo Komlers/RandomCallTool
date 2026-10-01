@@ -13,22 +13,27 @@ document.getElementById("sidebar").innerHTML = `
 <h3>目录</h3>
 <ul>
     <li><a href="../docs/">帮助文档：主页面</a></li>
-    <li><a href="#">主程序使用帮助</a></li>
+    <li><a href="#">第一部分 · 主程序帮助</a></li>
     <ul>
-        <li><a href="1-1.html">随机抽组操作指南</a></li>
-        <li><a href="1-2.html">随机抽人操作指南</a></li>
-        <li><a href="1-3.html">抽样模式详解</a></li>
-        <li><a href="1-4.html">随机点名操作指南</a></li>
-        <li><a href="1-5.html">悬浮球与系统托盘</a></li>
+        <li><a href="1-1.html">随机抽取操作指南</a></li>
+        <li><a href="1-2.html">随机点名操作指南</a></li>
+        <li><a href="1-3.html">悬浮球与桌面集成</a></li>
+        <li><a href="1-4.html">软件配置详细详解</a></li>
+        <li><a href="1-5.html">抽样模式详细讲解</a></li>
     </ul>
-    <li><a href="#">工具与更多</a></li>
+    <li><a href="#">第二部分 · 工具与优化</a></li>
     <ul>
-        <li><a href="2-1.html">更新与卸载工具说明</a></li>
-        <li><a href="2-2.html">配置与快捷键</a></li>
-        <li><a href="2-3.html">常见问题与注意事项</a></li>
+        <li><a href="2-1.html">独立更新程序</a></li>
+        <li><a href="2-2.html">独立卸载程序</a></li>
+        <li><a href="2-3.html">快捷键支持</a></li>
+        <li><a href="2-4.html">跨平台说明</a></li>
     </ul>
-    <li><a href="history.html">版本更新记录</a></li>
-    <li><a href="version.html">版本号规则说明</a></li>
+    <li><a href="#">第三部分 · 说明与更多</a></li>
+    <ul>
+        <li><a href="3-1.html">版本号命名规则</a></li>
+        <li><a href="3-2.html">版本更新日志记录</a></li>
+        <li><a href="3-3.html">常见问题与注意事项</a></li>
+    </ul>
 </ul>
 <h3>仓库</h3>
 <ul>

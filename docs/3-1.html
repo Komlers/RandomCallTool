@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>版本号规则说明 - 随机抽取工具 帮助文档</title>
+    <title>版本号命名规则 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -164,13 +164,14 @@ rct_date = "2026-09-12"         # 发布日期</code></pre>
                 <li>同步修改仓库根目录 <code>metadata.json</code>：正式版填进 <code>version</code>，测试版填进 <code>preview</code>，并把<strong>上一个版本</strong>的版本代码写进 <code>lastver</code>。</li>
                 <li>确认新的版本代码大于<strong>所有历史版本</strong>（含测试版）。</li>
                 <li>Git 标签使用 <code>V&lt;版本号&gt;</code>，例如 <code>V2.5.3</code>；安装包命名为 <code>RandomCallTool_Setup_V&lt;版本号&gt;.exe</code>，放在对应 Release 下。</li>
-                <li>在 <a href="history.html">版本更新记录</a> 中登记该版本，并给对应的 <code>&lt;div&gt;</code> 设置 <code>id</code> 为版本代码（供首页「查看更新日志」按钮定位）。例如：<a href="history.html#253000"><b>V2.5.3</b></a></li>
+                <li>在 <a href="3-2.html">版本更新记录</a> 中登记该版本，并给对应的 <code>&lt;div&gt;</code> 设置 <code>id</code> 为版本代码（供首页「查看更新日志」按钮定位）。例如：<a href="3-2.html#253000"><b>V2.5.3</b></a></li>
             </ol>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>

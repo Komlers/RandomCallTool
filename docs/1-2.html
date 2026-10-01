@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>随机抽人操作指南 - 随机抽取工具 帮助文档</title>
+    <title>随机点名操作指南 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -15,104 +15,73 @@
     <script src="hs.js"></script>
     <div class="container">
         <div class="markdown-body">
-            <h1>随机抽人操作指南</h1>
-            <p>随机抽人功能支持从样本文件（<code>.rcp</code> / <code>.txt</code> / <code>.csv</code>）或样本库中随机抽取指定数量的人名。</p>
+            <h1>随机点名操作指南</h1>
+            <p>随机点名是「随机抽取」之外的另一个功能，采用<strong>跑马灯</strong>的形式：点击「开始点名」后名单里的名字快速跳动，点击「停止」则<strong>定格显示当前名字</strong>。适用于课堂提问、会议抽人、活动现场点名等场景。</p>
             <hr>
             <h2>操作步骤</h2>
-            <h3>① 切换至随机抽人模式</h3>
-            <p>切换到「随机抽取」选项卡，在上方的「抽取模式」中选择「抽人」。</p>
-            <h3>② 加载样本文件</h3>
-            <p>有多种方式加载样本名单：</p>
+            <h3>① 切换到随机点名选项卡</h3>
+            <p>打开程序后，点击顶部「随机点名」选项卡，或使用快捷键 <kbd>Ctrl+P</kbd>、主页的「点名」按钮进入。</p>
+            <h3>② 加载名单</h3>
+            <p>点名名单与「随机抽人」共用同一个<strong>样本库</strong>，操作方式如下：</p>
+            <ul>
+                <li>在下拉框中选择样本库中的名单，点击「加载」</li>
+                <li>点击「刷新」重新扫描样本库，若当前名单仍在库中会同步重新读取最新内容</li>
+                <li>如果样本库为空，请先通过菜单「文件 → 导入样本到库」（<kbd>Ctrl+I</kbd>）导入名单</li>
+            </ul>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>名单中的<strong>重复名字会自动合并</strong>，超过 10 个字符的名字会被自动截断，以保证跑马灯显示整齐。</p>
+            </blockquote>
+            <h3>③ 开始点名</h3>
             <table>
                 <thead>
-                    <tr>
-                        <th>操作</th>
-                        <th>快捷键</th>
-                        <th>说明</th>
-                    </tr>
+                    <tr><th>按钮</th><th>说明</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>手动选择文件</td>
-                        <td><kbd>Ctrl+O</kbd></td>
-                        <td>从文件对话框选择 <code>.rcp</code> / <code>.txt</code> / <code>.csv</code> 文件</td>
-                    </tr>
-                    <tr>
-                        <td>从样本库加载</td>
-                        <td><kbd>Ctrl+Shift+O</kbd></td>
-                        <td>从已导入的样本库中快速选择</td>
-                    </tr>
-                    <tr>
-                        <td>重新加载当前文件</td>
-                        <td><kbd>Ctrl+R</kbd></td>
-                        <td>重新读取当前已加载的文件</td>
-                    </tr>
-                    <tr>
-                        <td>自动加载默认样本</td>
-                        <td><kbd>Ctrl+D</kbd></td>
-                        <td>加载配置中预设的默认样本文件</td>
-                    </tr>
+                    <tr><td><strong>开始点名</strong></td><td>手动模式：名字持续快速跳动，点击「停止」定格。若 10 秒内未点击停止，会自动停止以避免长时间滚动</td></tr>
+                    <tr><td><strong>自动点名</strong></td><td>自动模式：在 1.0x ~ 3.0x 中随机取一个速率，并在 2 ~ 3 秒内随机定下一个时长，到时自动停止并定格结果</td></tr>
+                    <tr><td><strong>停止</strong></td><td>定格当前显示的名字；完成后按钮会变为「再点一次」，可直接重新开始</td></tr>
                 </tbody>
             </table>
-            <blockquote class="markdown-alert markdown-alert-tip">
-                <p>如果样本库为空，使用「选择文件」打开名单时，程序会询问是否将该文件一并导入到样本库。选择「是」即可直接接着导入流程完成入库，无需再手动执行一次导入。</p>
-            </blockquote>
-            <blockquote class="markdown-alert markdown-alert-note">
-                <p><strong>名单读取限制</strong>：为避免超大文件造成卡顿，程序最多只读取文件的前 <strong>8MB</strong>、最多 <strong>1000</strong> 个名字；每个名字会自动去掉首尾空白并截断到 <strong>20 个字符</strong>（随机点名另有更短的 10 字符限制）。触发限制时会在提示中说明。</p>
-            </blockquote>
-            <h3>③ 设置抽取参数</h3>
+            <p>点名结果会以大字直接显示在界面中，因此<strong>不会</strong>再弹出提醒窗口或推送 ClassIsland 通知。若需要把结果推送到教室电脑，请使用「随机抽取」功能。</p>
+            <h3>④ 点名设置</h3>
+            <p>点击「点名设置」按钮，或通过菜单「编辑 → 配置 → 抽样设置 → 打开随机点名配置」进入点名设置窗口：</p>
             <ul>
-                <li><strong>抽取数量</strong>：设置要抽取的人数（不能超过样本总数）</li>
-                <li><strong>抽样模式</strong>：选择基本 / 智能 / 高级 三种模式之一（详见 <a href="1-3.html">抽样模式详解</a>）</li>
-            </ul>
-            <h3>④ 执行抽取</h3>
-            <p>点击「抽取」按钮或按 <kbd>Ctrl+Enter</kbd> 进行随机抽取。结果会展示在程序窗口右侧的历史记录面板中，同时按「配置 → 提醒」的设置弹出结果窗口，或通过 IslandMQ 推送 ClassIsland 通知。</p>
-            <blockquote class="markdown-alert markdown-alert-important">
-                <p><strong>结果超过 10 个时</strong>：提醒窗口与 ClassIsland 通知只会显示前 10 个（其余省略），程序会把<strong>完整结果强制保存为 HTML</strong>并写入历史记录文件，然后弹窗提醒并自动打开该 HTML，以便查看完整结果。参见 <a href="2-3.html">常见问题与注意事项</a>。</p>
-            </blockquote>
-            <h3>⑤ 结果管理</h3>
-            <ul>
-                <li><kbd>Ctrl+S</kbd> — 保存最新一条抽取结果</li>
-                <li><kbd>Ctrl+Shift+S</kbd> — 批量保存所有历史记录</li>
-                <li><kbd>Ctrl+W</kbd> — 清除所有历史记录</li>
-                <li>结果文件默认为 HTML 格式，保存位置可在配置中设置</li>
+                <li><strong>名字轮换速率</strong>：范围 0.5x ~ 5.0x，1.0x 为基准速率，数值越大名字切换越快</li>
+                <li><strong>点名前打乱名单顺序</strong>：每次点名开始前先随机打乱名单顺序</li>
+                <li><strong>点名方式</strong>：
+                    <ul>
+                        <li><strong>放回式</strong>：点名后名字仍保留在名单中（默认）</li>
+                        <li><strong>不放回式</strong>：被点到的人会从名单池中移除，避免重复点名</li>
+                    </ul>
+                </li>
+                <li><strong>重置限度</strong>：仅在「不放回式」下生效，当剩余人数 ≤ 限度时自动重置名单池。可选：
+                    <ul>
+                        <li><strong>完全</strong>：名单池抽空后才重置</li>
+                        <li><strong>过半</strong>：剩余人数不足总数一半时重置</li>
+                        <li><strong>自定义</strong>：剩余人数 ≤ 指定人数时重置</li>
+                    </ul>
+                </li>
             </ul>
             <hr>
-            <h2>支持的样本文件格式</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>格式</th>
-                        <th>说明</th>
-                        <th>推荐</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>.rcp</code></td>
-                        <td>经 Base64 编码的名单文件</td>
-                        <td>⭐ 推荐</td>
-                    </tr>
-                    <tr>
-                        <td><code>.txt</code></td>
-                        <td>纯文本文件，每行一个名字</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><code>.csv</code></td>
-                        <td>逗号分隔值文件</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <blockquote class="markdown-alert markdown-alert-note">
-                <p>自 <strong>V2.5.2</strong> 起，配套的「名单编码工具」已从套件中移除。日常使用建议直接导入 <code>.txt</code> / <code>.csv</code>；如确实需要 <code>.rcp</code>，可将明文名单按 <strong>Base64</strong> 编码后另存为 <code>.rcp</code> 文件。导入后也可以在「配置 → 样本管理」中将样本导出为 <code>.rcp</code>。</p>
-            </blockquote>
+            <h2>示例场景</h2>
+            <ul>
+                <li><strong>课堂提问</strong>：加载班级名单，使用「不放回式 + 完全重置」，让每个同学都被抽到一次</li>
+                <li><strong>会议发言</strong>：使用「自动点名」快速产生发言人，无需手动停止</li>
+                <li><strong>活动抽奖</strong>：开启「点名前打乱名单顺序」，保证顺序随机不可预测</li>
+            </ul>
+            <hr>
+            <h2>小贴士</h2>
+            <ul>
+                <li>点名结果会写入程序运行日志（菜单「日志 → 查看日志」，<kbd>Ctrl+L</kbd>），便于事后核对</li>
+                <li>「不放回式」中途重新加载名单会重置名单池</li>
+                <li>点名名单的自动加载由配置中的「启动时自动加载名单（随机点名）」单独控制，与「随机抽人」的自动加载互不影响</li>
+            </ul>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>

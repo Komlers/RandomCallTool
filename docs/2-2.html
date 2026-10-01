@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
     <link rel="stylesheet" href="github-markdown.css">
     <link rel="stylesheet" href="style.css">
-    <title>配置与快捷键 - 随机抽取工具 帮助文档</title>
+    <title>独立卸载程序 - 随机抽取工具 帮助文档</title>
 </head>
 <body>
     <div class="header" id="header"></div>
@@ -15,162 +15,39 @@
     <script src="hs.js"></script>
     <div class="container">
         <div class="markdown-body">
-            <h1>配置与快捷键</h1>
+            <h1>独立卸载程序</h1>
+            <p>卸载工具 <code>remove.exe</code> 是套件中独立的小工具，提供三种卸载模式。运行时需先选择模式并二次确认，操作<strong>不可撤销</strong>。</p>
             <hr>
-            <h2>主程序快捷键</h2>
+            <h2>卸载模式</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>快捷键</th>
-                        <th>功能</th>
-                    </tr>
+                    <tr><th>模式</th><th>说明</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><kbd>Ctrl+O</kbd></td><td>选择样本文件</td></tr>
-                    <tr><td><kbd>Ctrl+Shift+O</kbd></td><td>从样本库加载</td></tr>
-                    <tr><td><kbd>Ctrl+R</kbd></td><td>重新加载当前文件</td></tr>
-                    <tr><td><kbd>Ctrl+D</kbd></td><td>自动加载默认样本</td></tr>
-                    <tr><td><kbd>Ctrl+I</kbd></td><td>导入样本到样本库</td></tr>
-                    <tr><td><kbd>Ctrl+Enter</kbd></td><td>执行抽取</td></tr>
-                    <tr><td><kbd>Ctrl+S</kbd></td><td>保存最新结果</td></tr>
-                    <tr><td><kbd>Ctrl+Shift+S</kbd></td><td>批量保存所有历史</td></tr>
-                    <tr><td><kbd>Ctrl+W</kbd></td><td>清除所有历史记录</td></tr>
-                    <tr><td><kbd>Ctrl+Shift+R</kbd></td><td>重置抽样历史</td></tr>
-                    <tr><td><kbd>Ctrl+,</kbd></td><td>打开配置窗口</td></tr>
-                    <tr><td><kbd>Ctrl+T</kbd></td><td>切换到「随机抽取」选项卡</td></tr>
-                    <tr><td><kbd>Ctrl+P</kbd></td><td>切换到「随机点名」选项卡</td></tr>
-                    <tr><td><kbd>Ctrl+L</kbd></td><td>查看日志文件</td></tr>
+                    <tr><td><strong>保留数据</strong></td><td>仅删除程序文件，保留数据配置和桌面结果</td></tr>
+                    <tr><td><strong>重置配置</strong></td><td>仅删除数据配置和日志，保留程序文件</td></tr>
+                    <tr><td><strong>完全卸载</strong></td><td>删除所有文件（包括程序、数据、配置、日志）</td></tr>
                 </tbody>
             </table>
-            <hr>
-            <h2>配置管理</h2>
-            <p>通过菜单栏「编辑 → 配置」（<kbd>Ctrl+,</kbd>）或主页「设置」按钮打开多选项卡配置窗口，包含以下六个选项卡：</p>
-            <h3>基本设置</h3>
+            <h2>额外清理项</h2>
+            <p>除程序目录外，执行「保留数据」或「完全卸载」时，卸载工具还会一并清理以下内容：</p>
             <ul>
-                <li><strong>自动保存抽取结果</strong>：抽取完成后自动保存结果文件</li>
-                <li><strong>结果保存位置</strong>：选择结果保存到「数据目录」或「桌面」</li>
-                <li><strong>启动时自动加载样本（随机抽人）</strong>：启动时自动加载默认样本</li>
-                <li><strong>启动时自动加载名单（随机点名）</strong>：点名名单的自动加载开关，与随机抽人相互独立</li>
-                <li><strong>加载样本时自动合并重复名字</strong>：加载名单时自动去除重复项</li>
-                <li><strong>历史记录条数</strong>：设置历史记录面板保留的最大条数（5~30）</li>
-                <li><strong>把抽取历史实时写入本地文件</strong>：每次抽取追加一行到 <code>data/history/YYYY-MM-DD.txt</code>（按日期分文件），并用旁边的「打开记录目录」按钮快速访问</li>
-                <li><strong>默认加载样本</strong>：选择启动时自动加载的样本库文件</li>
+                <li>开始菜单中的程序组文件夹（「随机抽取工具」/「随机抽取工具套件」，当前用户与所有用户）</li>
+                <li>桌面快捷方式（当前用户桌面与公共桌面）</li>
+                <li>开机自启复制到启动文件夹的快捷方式（公共启动文件夹与当前用户启动文件夹）</li>
             </ul>
-            <h3>抽样设置</h3>
-            <ul>
-                <li><strong>抽样模式</strong>：选择默认的抽样模式（基本 / 智能 / 高级）</li>
-                <li><strong>智能模式使用固定权重</strong>：勾选后可在智能模式下自定义权重</li>
-                <li><strong>高级抽取配置</strong>：打开高级抽取配置窗口，设置放回/不放回、抽取优化、加权等详细选项</li>
-                <li><strong>随机点名配置</strong>：打开随机点名设置窗口，设置点名速率、打乱名单、放回/不放回、重置限度等</li>
-                <li><strong>默认值设定</strong>：默认抽取方式（抽人 / 抽组）、抽组默认总数、默认选取数量</li>
-            </ul>
-            <h3>样本管理</h3>
-            <ul>
-                <li>查看已保存的样本库条目（显示名称与文件大小），样本库上限 50 个</li>
-                <li>「导入样本」添加新样本，「打开样本目录」直接打开样本存放目录</li>
-                <li>对单条样本可执行<strong>重命名</strong>、<strong>删除</strong>，以及导出为 <code>TXT</code> / <code>RCP</code></li>
-            </ul>
-            <h3>提醒</h3>
-            <ul>
-                <li><strong>提醒方式</strong>：选择<strong>随机抽取</strong>完成后的提醒方式（随机点名不触发提醒）
-                    <ul>
-                        <li><strong>弹窗提醒</strong>：弹出结果窗口（默认）</li>
-                        <li><strong>ClassIsland 通知</strong>：通过 IslandMQ 插件把结果推送到教室电脑</li>
-                    </ul>
-                </li>
-                <li><strong>主机 IP / 端口</strong>：教室电脑的地址（默认 <code>127.0.0.1:5555</code>）</li>
-                <li><strong>通知标题</strong>：推送内容中的遮罩文本；留空时自动使用「随机抽取结果」</li>
-                <li><strong>遮罩时长 / 正文时长</strong>：标题遮罩与正文通知的显示时长（秒，默认 1 秒 / 3 秒）</li>
-                <li><strong>发送失败时改用弹窗提醒</strong>：教室电脑不在线时仍能看到结果</li>
-                <li><strong>连接测试 / 发送测试通知</strong>：验证与 ClassIsland 的连通性和显示效果</li>
-            </ul>
-            <h3>桌面集成</h3>
-            <p>集中管理两项桌面常驻功能，详细用法参见 <a href="1-5.html">桌面悬浮球与系统托盘</a>。</p>
-            <ul>
-                <li><strong>显示桌面悬浮球</strong>：在桌面显示一个可拖动的置顶圆形按钮
-                    <ul>
-                        <li><strong>左键单击</strong>：立即执行当前选定的抽取操作（默认抽 1 个人）</li>
-                        <li><strong>右键菜单</strong>：三个子菜单——「抽取模式」（抽字母组 / 抽数字组 / 抽人）、「抽取数量」（1~9 个）与「悬浮球大小」，当前生效的预设会带勾选标记</li>
-                        <li>拖动可调整位置，程序会自动记住</li>
-                        <li><strong>悬浮球大小</strong>：三档可选（小 / 中 / 大，默认「中」），也可在悬浮球右键菜单中快速切换</li>
-                    </ul>
-                </li>
-                <li><strong>关闭窗口后保留系统托盘</strong>：关闭主窗口后程序继续在托盘中运行；取消勾选则任何退出操作都会完全退出</li>
-                <li><strong>启动后直接后台驻留托盘</strong>：启动时不显示主界面，直接静默驻留托盘</li>
-                <li><strong>开机自启</strong>：勾选后开机登录时自动启动主程序
-                    <ul>
-                        <li>原理：把开始菜单中的主程序快捷方式复制到系统启动文件夹（资源管理器地址 <code>shell:common startup</code>），取消勾选则删除该快捷方式</li>
-                        <li>公共启动文件夹为所有用户共有，普通账户没有写入权限，勾选或取消时会弹出 UAC 提权请求，允许后才能完成设置</li>
-                        <li>勾选框的初始状态以启动文件夹中快捷方式是否实际存在为准</li>
-                    </ul>
-                </li>
-            </ul>
-            <h3>更新</h3>
-            <ul>
-                <li><strong>版本更新源</strong>：切换检测更新的源（GitHub / Gitee）</li>
-                <li><strong>启动时自动检测更新</strong>：开启/关闭开机自动检测新版本</li>
-                <li><strong>接收测试版更新</strong>：开启后版本检测将同时检查测试版更新</li>
-                <li><strong>当前版本信息</strong>与「立即检查更新」按钮</li>
-            </ul>
-            <p>关于版本号与版本代码的含义及其命名规则，参见 <a href="version.html">版本号规则说明</a>。</p>
-            <blockquote class="markdown-alert markdown-alert-tip">
-                <p>配置窗口底部提供「确定 / 应用 / 关闭」三个按钮。关闭时若有未应用的更改，程序会询问是否应用。</p>
-            </blockquote>
-            <h2>退出程序</h2>
-            <p>根据托盘设置的不同，退出行为有所区别：</p>
-            <ul>
-                <li><strong>托盘已启用</strong>：点击窗口关闭按钮会隐藏到托盘；主页「退出」按钮、菜单「文件 → 退出」或托盘菜单「退出」则会完全退出程序。</li>
-                <li><strong>托盘已关闭</strong>：所有退出操作（包括关闭窗口）都会完全退出程序，并弹出确认提示。</li>
-            </ul>
-            <h2>命令行参数（启动时加载自定义权重）</h2>
-            <p>主程序支持通过命令行参数在启动时直接应用自定义权重，适合脚本、自动化任务或自定义快捷方式调用。</p>
-            <h3>参数说明</h3>
-            <table>
-                <thead>
-                    <tr><th>参数</th><th>说明</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>--weight-set &lt;名字&gt; &lt;权重&gt;</code></td>
-                        <td>设置一条权重，可重复出现；出现该参数即开启自定义权重</td>
-                    </tr>
-                    <tr>
-                        <td><code>-lib &lt;样本库名&gt;</code></td>
-                        <td>仅加载样本库中指定样本时生效，可重复或使用列表</td>
-                    </tr>
-                    <tr>
-                        <td><code>-file &lt;文件名或路径&gt;</code></td>
-                        <td>仅指定外部文件生效；启动时自动加载第一个存在的文件</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>名称列表</h3>
-            <p>权重名字与 <code>-lib</code> / <code>-file</code> 的目标均支持 JSON 风格列表（整体用单引号包裹，避免与外层引号冲突）：</p>
-            <pre>--weight-set '["测试样本12","测试样本13"]' 20.00</pre>
-            <p>列表内各项使用同一权重；若要为不同名字设置不同权重，重复书写多个 <code>--weight-set</code>。</p>
-            <h3>目标范围</h3>
-            <ul>
-                <li>不写 <code>-lib</code> / <code>-file</code>：任何已加载样本中只要存在该名字即设置权重</li>
-                <li><code>-lib</code>：仅样本库中指定样本被加载时生效</li>
-                <li><code>-file</code>：
-                    <ul>
-                        <li>值为纯文件名（如 <code>demo.txt</code>）：任何路径下的同名文件都生效</li>
-                        <li>值带路径（如 <code>D:\demo\demo.txt</code>）：仅该具体文件生效</li>
-                    </ul>
-                </li>
-            </ul>
-            <h3>示例</h3>
-            <pre>rctool.exe --weight-set "测试样本12" 20.00
-rctool.exe --weight-set "测试样本12" 20.00 -lib "测试样本文件"
-rctool.exe --weight-set '["测试样本12","测试样本13"]' 20.00 -file "demo.txt"</pre>
             <blockquote class="markdown-alert markdown-alert-note">
-                <p>参数本身的错误（权重值不是数字、为负数、参数缺值、未知参数等）只写入运行日志，不弹出前端窗口；异常部分忽略，程序正常启动。</p>
+                <p>卸载前请确保已备份重要数据。程序不会自动备份配置与结果文件。</p>
             </blockquote>
+            <hr>
+            <h2>关于名单编码工具</h2>
+            <p>自 <strong>V2.5.2</strong> 起，原先配套的「名单编码工具（EncodeTool）」已从套件中移除。日常使用可直接导入 <code>.txt</code> / <code>.csv</code> 名单；如需 <code>.rcp</code> 文件，可将明文名单按 <strong>Base64</strong> 编码后另存为 <code>.rcp</code>，或先将名单导入样本库，再在「配置 → 样本管理」中导出为 <code>.rcp</code>。</p>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
                 <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>
