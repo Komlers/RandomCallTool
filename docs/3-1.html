@@ -29,6 +29,10 @@
 2.5.3.1-beta     测试版（第一阶段）
 2.5.3.1-beta2    测试版（第二阶段）
 2.5.3.1          正式版（修订版）</code></pre>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p><strong>V2.5.3.1</strong> 版本实际不存在。</p>
+                <p>由于开发 V2.5.3.1 过程中，更新内容较多，故直接发布了 <strong>V2.6</strong> 版本。</p>
+            </blockquote>
             <table>
                 <thead>
                     <tr>
@@ -109,9 +113,6 @@
                 <li>若在配置中勾选了「接收测试版更新」，则再读取 <code>preview.vercode</code>，取两者中<strong>较大</strong>的一个作为远程版本。</li>
                 <li>仅当 <strong>远程版本代码 &gt; 本地版本代码</strong> 时，才会提示发现新版本。</li>
             </ol>
-            <blockquote class="markdown-alert markdown-alert-important">
-                <p>由此得到一条硬性要求：<strong>新版本的版本代码必须大于此前发布过的所有版本</strong>，包括已经发出去的测试版。否则已经装上该测试版的用户将检测不到新版本。</p>
-            </blockquote>
             <p>例如当前正式版 2.5.3 的版本代码是 <code>253000</code>，而测试版 2.5.3.1-beta2 是 <code>253032</code>。因此发布 2.5.3.1 正式版时，版本代码必须大于 <code>253032</code>，即 <code>253100</code>。</p>
             <hr>
             <h2>四、相关字段的位置</h2>
@@ -158,13 +159,11 @@ rct_date = "2026-09-12"         # 发布日期</code></pre>
             </table>
             <p>官网首页与下载页通过 <code>js/getmeta.js</code> 读取该文件，动态显示「最新版本」「发布日期」「最新测试版」等信息。</p>
             <hr>
-            <h2>五、发布新版本时的检查清单</h2>
+            <h2>五、一些补充说明</h2>
             <ol>
-                <li>修改 <code>src/core/info.py</code> 中的 <code>rct_version</code>、<code>rct_vercode</code>、<code>rct_date</code>。</li>
-                <li>同步修改仓库根目录 <code>metadata.json</code>：正式版填进 <code>version</code>，测试版填进 <code>preview</code>，并把<strong>上一个版本</strong>的版本代码写进 <code>lastver</code>。</li>
-                <li>确认新的版本代码大于<strong>所有历史版本</strong>（含测试版）。</li>
+                <li>对于 <code>metadata.json</code>：正式版填进 <code>version</code>，测试版填进 <code>preview</code>，并把<strong>上一个版本</strong>的版本代码写进 <code>lastver</code>。</li>
                 <li>Git 标签使用 <code>V&lt;版本号&gt;</code>，例如 <code>V2.5.3</code>；安装包命名为 <code>RandomCallTool_Setup_V&lt;版本号&gt;.exe</code>，放在对应 Release 下。</li>
-                <li>在 <a href="3-2.html">版本更新记录</a> 中登记该版本，并给对应的 <code>&lt;div&gt;</code> 设置 <code>id</code> 为版本代码（供首页「查看更新日志」按钮定位）。例如：<a href="3-2.html#253000"><b>V2.5.3</b></a></li>
+                <li>在 <a href="3-2.html">版本更新记录</a> 中登记版本时，给对应的 <code>&lt;div&gt;</code> 设置 <code>id</code> 为版本代码（供首页「查看更新日志」按钮定位）。例如：<a href="3-2.html#253000"><b>V2.5.3</b></a></li>
             </ol>
             <hr>
             <div align="center">

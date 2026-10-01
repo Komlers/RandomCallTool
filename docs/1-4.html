@@ -20,22 +20,22 @@
             <hr>
             <h2>基本设置</h2>
             <ul>
-                <li><strong>自动保存抽取结果</strong>：抽取完成后自动保存结果文件</li>
-                <li><strong>结果保存位置</strong>：选择结果保存到「数据目录」或「桌面」</li>
-                <li><strong>启动时自动加载样本（随机抽人）</strong>：启动时自动加载默认样本</li>
-                <li><strong>启动时自动加载名单（随机点名）</strong>：点名名单的自动加载开关，与随机抽人相互独立</li>
-                <li><strong>加载样本时自动合并重复名字</strong>：加载名单时自动去除重复项</li>
-                <li><strong>历史记录条数</strong>：设置历史记录面板保留的最大条数（5~30）</li>
-                <li><strong>把抽取历史实时写入本地文件</strong>：每次抽取追加一行到 <code>data/history/YYYY-MM-DD.txt</code>（按日期分文件），并用旁边的「打开记录目录」按钮快速访问</li>
-                <li><strong>默认加载样本</strong>：选择启动时自动加载的样本库文件</li>
+                <li><strong>自动保存抽取结果</strong>：<br>抽取完成后是否自动保存结果文件</li>
+                <li><strong>结果保存位置</strong>：<br>选择结果保存到「数据目录」或「桌面」</li>
+                <li><strong>启动时自动加载样本（随机抽人）</strong>：<br>启动时是否自动加载随机抽人的默认样本</li>
+                <li><strong>启动时自动加载名单（随机点名）</strong>：<br>点名名单的自动加载开关，与随机抽人相互独立</li>
+                <li><strong>加载样本时自动合并重复名字</strong>：<br>加载名单时是否自动去除重复项</li>
+                <li><strong>历史记录条数</strong>：<br>设置历史记录面板保留的最大条数（5~30）</li>
+                <li><strong>把抽取历史实时写入本地文件</strong>：<br>每次抽取追加一行到 <code>data/history/YYYY-MM-DD.txt</code>（按日期分文件），并用旁边的「打开记录目录」按钮快速访问</li>
+                <li><strong>默认加载样本</strong>：<br>选择启动时自动加载的样本库文件</li>
             </ul>
             <h2>抽样设置</h2>
             <ul>
-                <li><strong>抽样模式</strong>：选择默认的抽样模式（基本 / 智能 / 高级）</li>
-                <li><strong>智能模式使用固定权重</strong>：勾选后可在智能模式下自定义权重</li>
-                <li><strong>高级抽取配置</strong>：打开高级抽取配置窗口，设置放回/不放回、抽取优化、加权等详细选项</li>
-                <li><strong>随机点名配置</strong>：打开随机点名设置窗口，设置点名速率、打乱名单、放回/不放回、重置限度等</li>
-                <li><strong>默认值设定</strong>：默认抽取方式（抽人 / 抽组）、抽组默认总数、默认选取数量</li>
+                <li><strong>抽样模式</strong>：<br>选择默认的抽样模式（基本 / 智能 / 高级）</li>
+                <li><strong>智能模式使用固定权重</strong>：<br>勾选后可在智能模式下自定义权重</li>
+                <li><strong>高级抽取配置</strong>：<br>打开高级抽取配置窗口，设置放回/不放回、抽取优化、加权等详细选项</li>
+                <li><strong>随机点名配置</strong>：<br>打开随机点名设置窗口，设置点名速率、打乱名单、放回/不放回、重置限度等</li>
+                <li><strong>默认值设定</strong>：<br>默认抽取方式（抽人 / 抽组）、抽组默认总数、默认选取数量</li>
             </ul>
             <h2>样本管理</h2>
             <ul>
@@ -45,33 +45,36 @@
             </ul>
             <h2>提醒</h2>
             <ul>
-                <li><strong>提醒方式</strong>：选择<strong>随机抽取</strong>完成后的提醒方式（随机点名不触发提醒）
+                <li><strong>提醒方式</strong>：<br>选择<strong>随机抽取</strong>完成后的提醒方式（随机点名不触发提醒）
                     <ul>
-                        <li><strong>弹窗提醒</strong>：弹出结果窗口（默认）</li>
-                        <li><strong>ClassIsland 通知</strong>：通过 IslandMQ 插件把结果推送到教室电脑</li>
+                        <li><strong>弹窗提醒</strong>：<br>弹出结果窗口（默认）</li>
+                        <li><strong>ClassIsland 通知</strong>：<br>通过 IslandMQ 插件把结果推送到教室电脑</li>
                     </ul>
                 </li>
-                <li><strong>主机 IP / 端口</strong>：教室电脑的地址（默认 <code>127.0.0.1:5555</code>）</li>
-                <li><strong>通知标题</strong>：推送内容中的遮罩文本；留空时自动使用「随机抽取结果」</li>
-                <li><strong>遮罩时长 / 正文时长</strong>：标题遮罩与正文通知的显示时长（秒，默认 1 秒 / 3 秒）</li>
-                <li><strong>发送失败时改用弹窗提醒</strong>：教室电脑不在线时仍能看到结果</li>
-                <li><strong>连接测试 / 发送测试通知</strong>：验证与 ClassIsland 的连通性和显示效果</li>
+                <li><strong>主机 IP / 端口</strong>：<br>教室电脑的地址（默认 <code>127.0.0.1:5555</code>）</li>
+                <li><strong>通知标题</strong>：<br>推送内容中的遮罩文本；留空时自动使用「随机抽取结果」</li>
+                <li><strong>遮罩时长 / 正文时长</strong>：<br>标题遮罩与正文通知的显示时长（秒，默认 1 秒 / 3 秒）</li>
+                <li><strong>发送失败时改用弹窗提醒</strong>：<br>教室电脑不在线时仍能看到结果</li>
+                <li><strong>连接测试 / 发送测试通知</strong>：<br>验证与 ClassIsland 的连通性和显示效果</li>
             </ul>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p><strong>ClassIsland通知</strong> 功能，需要在电脑上安装了 <strong>ClassIsland</strong> 软件，以及在软件内安装 <strong>IslandMQ</strong> 插件，并且确保 ClassIsland 软件已启动并运行，否则无法推送通知。</p>
+                <p>另外，一般情况下无需对 IslandMQ 插件进行额外配置，如果配置有更改，请根据实际情况调整IP和端口。</p>
+            </blockquote>
             <h2>桌面集成</h2>
             <p>悬浮球、系统托盘与开机自启的开关集中在此选项卡，各项的详细用法（含右键菜单、UAC 提权等）参见 <a href="1-3.html">悬浮球与桌面集成</a>。</p>
             <h2>更新</h2>
             <ul>
-                <li><strong>版本更新源</strong>：切换检测更新的源（GitHub / Gitee）</li>
-                <li><strong>启动时自动检测更新</strong>：开启/关闭开机自动检测新版本</li>
-                <li><strong>接收测试版更新</strong>：开启后版本检测将同时检查测试版更新</li>
-                <li><strong>当前版本信息</strong>与「立即检查更新」按钮</li>
+                <li><strong>版本更新源</strong>：<br>切换检测更新的源（GitHub / Gitee）</li>
+                <li><strong>启动时自动检测更新</strong>：<br>开启/关闭开机自动检测新版本</li>
+                <li><strong>接收测试版更新</strong>：<br>开启后版本检测将同时检查测试版更新（默认关闭）</li>
             </ul>
             <p>关于版本号与版本代码的含义及其命名规则，参见 <a href="3-1.html">版本号命名规则</a>。</p>
             <blockquote class="markdown-alert markdown-alert-tip">
                 <p>配置窗口底部提供「确定 / 应用 / 关闭」三个按钮。关闭时若有未应用的更改，程序会询问是否应用。</p>
             </blockquote>
             <hr>
-            <h2>命令行参数（启动时加载自定义权重）</h2>
+            <h2>命令行参数（初级版）</h2>
             <p>主程序支持通过命令行参数在启动时直接应用自定义权重，适合脚本、自动化任务或自定义快捷方式调用。</p>
             <h3>参数说明</h3>
             <table>
@@ -105,6 +108,9 @@ rctool.exe --weight-set "测试样本12" 20.00 -lib "测试样本文件"
 rctool.exe --weight-set '["测试样本12","测试样本13"]' 20.00 -file "demo.txt"</pre>
             <blockquote class="markdown-alert markdown-alert-note">
                 <p>参数本身的错误（权重值不是数字、为负数、参数缺值、未知参数等）只写入运行日志，不弹出前端窗口；异常部分忽略，程序正常启动。</p>
+            </blockquote>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>如果是在公共电脑上，该功能可能会被滥用，请自行评估使用场景。</p>
             </blockquote>
             <hr>
             <h2>退出程序</h2>

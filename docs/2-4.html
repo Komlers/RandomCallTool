@@ -30,17 +30,21 @@
                         <td>提供安装版与绿色版，开箱即用</td>
                     </tr>
                     <tr>
-                        <td><strong>macOS</strong></td>
-                        <td>可通过源码运行，官方未测试，可能遇到未查明的问题</td>
-                        <td>自行获取源码运行</td>
+                        <td><strong>Linux</strong></td>
+                        <td>可通过源码运行，源码做了一些小适配，但可能还会有位置的问题</td>
+                        <td>源码运行 / 自行编译</td>
                     </tr>
                     <tr>
-                        <td><strong>Linux</strong></td>
-                        <td>可通过源码运行，官方未测试，可能遇到未查明的问题</td>
-                        <td>自行获取源码运行</td>
+                        <td><strong>macOS</strong></td>
+                        <td>同上</td>
+                        <td>同上</td>
                     </tr>
                 </tbody>
             </table>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>对于macOS平台，能做的适配可能会更少，因为本程序只在Windows和Linux平台上做过测试，且只在Windows平台上开发。</p>
+                <p>此外，例如检测更新、卸载软件、开机自启等等功能，只确保Windows能用，Linux和macOS无法使用。</p>
+            </blockquote>
             <hr>
             <h2>各功能的平台相关性</h2>
             <ul>
@@ -48,8 +52,11 @@
                 <li><strong>桌面悬浮球 / 系统托盘</strong>：基于 <code>pystray</code> 与 <code>Pillow</code>，这两个库本身支持三大平台</li>
                 <li><strong>开机自启</strong>：<strong>仅支持 Windows</strong>。其实现依赖开始菜单快捷方式与系统启动文件夹（<code>shell:common startup</code>），并通过 UAC 完成提权；非 Windows 下该配置项不可用</li>
                 <li><strong>更新程序 / 卸载工具</strong>：围绕 Windows 的安装方式设计（开始菜单、桌面快捷方式、自解压安装到 <code>C:\Apps\RandomCallTool</code>），未适配其他平台</li>
-                <li><strong>窗口图标</strong>：图标为 Windows 的 <code>.ico</code> 格式，其他平台下图标设置可能不生效，但不影响功能</li>
             </ul>
+            <blockquote class="markdown-alert markdown-alert-warning">
+                <p><strong>悬浮球</strong>实测在Linux下会有显示问题，表现为圆形外侧有一圈白色边框。</p>
+                <p>测试环境：Fedora 44 + Wayland + KWin + KDE Plasma 6.7.5</p>
+            </blockquote>
             <hr>
             <h2>从源码运行</h2>
             <p>macOS 与 Linux 用户可按以下步骤从源码运行主程序：</p>
@@ -72,7 +79,7 @@
                 </tbody>
             </table>
             <blockquote class="markdown-alert markdown-alert-note">
-                <p>本项目优先支持 Windows。在非 Windows 平台使用时如遇到问题，可向开发者反馈，但修复优先级可能较低。</p>
+                <p>本项目优先支持 Windows。在非 Windows 平台使用时如遇到问题，可以反馈，但随缘修复更新吧。</p>
             </blockquote>
             <hr>
             <div align="center">
