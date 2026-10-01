@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+        <title>404 - 页面未找到 - 随机抽取工具</title>
+        <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+        <style>
+            body {
+                background-color: rgb(222, 242, 242);
+                font-family: MiSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                margin: 0;
+                padding: 0;
+                padding-top: 45px;
+                color: #333;
+            }
+
+            a, a:hover, a:active, a:visited {
+                text-decoration: none;
+                color: #448AFF;
+            }
+
+            .header {
+                background-color: rgb(255, 255, 255);
+                height: 45px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 999;
+                margin: 0 auto;
+                overflow: hidden;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            }
+
+            .header b {
+                font-size: 18px;
+                margin: 0;
+                margin-left: 20px;
+                padding: 0;
+                text-align: center;
+                line-height: 45px;
+                display: inline-block;
+            }
+
+            .header a {
+                color: rgb(102, 102, 102);
+                margin-left: 15px;
+            }
+
+            .header-right {
+                font-size: 16px;
+                margin: 0;
+                margin-right: 20px;
+                padding: 0;
+                text-align: center;
+                line-height: 45px;
+                display: block;
+                float: right;
+            }
+
+            .header-right a {
+                color: rgb(102, 102, 102);
+                transition: transform 0.5s ease;
+                display: inline-block;
+            }
+
+            .header-right a:hover {
+                color: #448AFF;
+            }
+
+            .main {
+                margin: 0 auto;
+                max-width: 960px;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 60px 20px 40px;
+            }
+
+            .error-code {
+                font-size: 2.5em;
+                font-weight: 700;
+                color: #444;
+                margin: 0;
+                line-height: 1.2;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+                margin: 10px 0;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2em;
+                color: #666;
+                margin: 5px 0;
+                letter-spacing: 2px;
+            }
+
+            .hero p {
+                color: #555;
+                font-size: 1.05em;
+                margin: 15px 0;
+            }
+
+            .hero-buttons {
+                margin-top: 30px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .button {
+                font-family: "MiSans-SemiBold", MiSans, sans-serif;
+                padding: 14px 32px;
+                border-radius: 10px;
+                display: inline-block;
+                font-size: 1em;
+                font-weight: 600;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .button:hover {
+                transform: translateY(-2px);
+            }
+
+            .button.primary {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white !important;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            }
+
+            .button.primary:hover {
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            }
+
+            .button.secondary {
+                background-color: rgba(255, 255, 255, 0.8);
+                color: #448AFF !important;
+                border: 2px solid #448AFF;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            }
+
+            .button.secondary:hover {
+                background-color: rgba(68, 138, 255, 0.1);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            }
+
+            .footer {
+                margin-top: 60px;
+                padding: 25px 20px;
+                text-align: center;
+                color: #7a7a7a;
+            }
+
+            .footer p {
+                margin: 5px 0;
+            }
+
+            @media (max-width: 480px) {
+                .button {
+                    padding: 12px 24px;
+                    font-size: 0.9em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <b>随机抽取工具</b>
+            <div class="header-right">
+                <a href="https://rct.danevan.top/">首页</a>
+                <a href="https://rct.danevan.top/docs/">文档</a>
+                <a href="https://rct.danevan.top/download.html">下载</a>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="hero">
+                <p class="error-code">404</p>
+                <h1>页面未找到</h1>
+                <p class="subtitle">Page Not Found</p>
+                <p>抱歉，您访问的页面不存在或已被移动。</p>
+                <div class="hero-buttons">
+                    <a href="https://rct.danevan.top/" class="button primary">返回首页</a>
+                    <a href="https://rct.danevan.top/download.html" class="button secondary">前往下载</a>
+                    <a href="https://rct.danevan.top/docs/" class="button secondary">阅读文档</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Copyright &copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>
