@@ -25,6 +25,10 @@
     const vcEl = document.getElementById("meta-vercode");
     const preverEl = document.getElementById("meta-preview-version");
     const predateEl = document.getElementById("meta-preview-date");
+    const ghSetupEl = document.getElementById("gh-setup-link");
+    const ghPreviewEl = document.getElementById("gh-preview-link");
+    const giteeSetupEl = document.getElementById("gitee-setup-link");
+    const giteePreviewEl = document.getElementById("gitee-preview-link");
 
     /**
      * 带超时控制的 fetch 请求
@@ -89,6 +93,15 @@
             if (meta.version.vercode && vcEl) {
                 vcEl.href = "docs/3-2.html#" + meta.version.vercode;
             }
+            // ── GitHub / Gitee 稳定版直链 ──
+            if (meta.version.version) {
+                const ver = meta.version.version;
+                const setupName = "RandomCallTool_Setup_V" + ver + ".exe";
+                const ghBase = "https://github.com/ElofHew/RandomCallTool/releases/download/V" + ver + "/";
+                const giteeBase = "https://gitee.com/ElofHew/RandomCallTool/releases/download/V" + ver + "/";
+                if (ghSetupEl) ghSetupEl.href = ghBase + setupName;
+                if (giteeSetupEl) giteeSetupEl.href = giteeBase + setupName;
+            }
         } else {
             if (verEl) verEl.textContent = "无可用的版本";
             if (dateEl) dateEl.textContent = "无可用的版本";
@@ -101,9 +114,26 @@
             if (meta.preview.date && predateEl) {
                 predateEl.textContent = meta.preview.date;
             }
+            // ── GitHub / Gitee 测试版直链 ──
+            if (meta.preview.version) {
+                const pv = meta.preview.version;
+                const pvSetupName = "RandomCallTool_Setup_V" + pv + ".exe";
+                const ghPvBase = "https://github.com/ElofHew/RandomCallTool/releases/download/V" + pv + "/";
+                const giteePvBase = "https://gitee.com/ElofHew/RandomCallTool/releases/download/V" + pv + "/";
+                if (ghPreviewEl) ghPreviewEl.href = ghPvBase + pvSetupName;
+                if (giteePreviewEl) giteePreviewEl.href = giteePvBase + pvSetupName;
+            }
         } else {
             if (preverEl) preverEl.textContent = "无可用的测试版";
             if (predateEl) predateEl.textContent = "无可用的测试版";
+            // 无测试版时置灰按钮
+            [ghPreviewEl, giteePreviewEl].forEach(function (el) {
+                if (!el) return;
+                el.textContent = "暂无测试版";
+                el.removeAttribute("href");
+                el.removeAttribute("target");
+                el.classList.add("disabled");
+            });
         }
         // ── 蓝奏云链接 ──
         if (meta.lanzou) {
