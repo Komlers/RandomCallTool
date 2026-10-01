@@ -53,7 +53,7 @@
                 <div class="notice-box">
                     <ol>
                         <li>如果是从安装包更新随机抽取工具，<strong>请先关闭所有随机抽取工具相关的程序</strong>（如：随机抽取工具主程序、更新程序等），然后再运行安装包进行安装，否则可能会导致<strong>致命性的错误</strong>（如程序文件完整性损坏、数据丢失等）；推荐使用程序内置的<strong>更新程序</strong>进行升级，它会自动检测新版本并完成下载安装，无需手动卸载重装。</li>
-                        <li>如果使用Edge浏览器下载程序时，提示<strong>“通常不会下载xxx……”</strong>，请点击右边的三点，点击<strong>“保留”</strong>。如果出现弹窗进一步推荐你不要保留，请点击“删除”按钮旁边的倒三角，点击<strong>“仍然保留”</strong>。<strong>本程序完全开源，可承诺100%无病毒无恶意代码</strong>。</li>
+                        <li>如果使用Edge浏览器下载程序时，提示<strong>“通常不会下载xxx……”</strong>，请点击右边的三点，点击<strong>“保留”</strong>。如果出现弹窗进一步推荐你不要保留，请点击“删除”按钮旁边的倒三角，点击<strong>“仍然保留”</strong>。<strong>本程序完全开源，可承诺100%无病毒无恶意代码</strong>。如果浏览器仍然拦截无法下载，可尝试下方<a href="#curl-download">命令行下载</a>方式。</li>
                         <li>在Windows10及以上系统中，直接双击打开从互联网下载的exe文件会经过Windows Defender Smartscreen进行病毒扫描。由于本程序封装的安装包没有签名，可能会提示<strong>“未经信任的软件”</strong>，直接点击<strong>“更多信息”→“仍然运行”</strong>即可。</li>
                     </ol>
                 </div>
@@ -92,6 +92,16 @@
                         </div>
                         <p class="download-note"><a href="https://gitee.com/ElofHew/RandomCallTool/releases" target="_blank">查看全部版本 &raquo;</a></p>
                     </div>
+                    <div class="download-card wide" id="curl-download">
+                        <h3>⌨️ 命令行下载（规避浏览器拦截）</h3>
+                        <p>如果 Edge 等浏览器反复拦截安装包，可复制下面的命令，打开 <strong>PowerShell</strong> 粘贴执行，直接通过命令行下载（Windows 10 1803 及以上系统自带 <code>curl.exe</code>）。</p>
+                        <p>建议先执行 <code>cd $env:USERPROFILE\Downloads</code> 切换到下载目录，再粘贴下载命令。</p>
+                        <div class="code-block">
+                            <button id="curl-copy" class="copy-btn" type="button">复制命令</button>
+                            <pre><code id="curl-cmd">Getting latest release from Gitee...</code></pre>
+                        </div>
+                        <p class="download-note">命令使用 Gitee 源；下载完成后运行同目录下的 exe 安装包即可。</p>
+                    </div>
                 </div>
             </div>
 
@@ -116,5 +126,6 @@
             </div>
         </div>
         <script src="js/getmeta.js"></script>
+        <script src="js/copy.js"></script>
     </body>
 </html>

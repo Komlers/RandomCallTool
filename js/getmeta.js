@@ -29,6 +29,7 @@
     const ghPreviewEl = document.getElementById("gh-preview-link");
     const giteeSetupEl = document.getElementById("gitee-setup-link");
     const giteePreviewEl = document.getElementById("gitee-preview-link");
+    const curlEl = document.getElementById("curl-cmd");
 
     /**
      * 带超时控制的 fetch 请求
@@ -101,6 +102,10 @@
                 const giteeBase = "https://gitee.com/ElofHew/RandomCallTool/releases/download/V" + ver + "/";
                 if (ghSetupEl) ghSetupEl.href = ghBase + setupName;
                 if (giteeSetupEl) giteeSetupEl.href = giteeBase + setupName;
+                // ── 命令行下载指令（Gitee 源）──
+                if (curlEl) {
+                    curlEl.textContent = "curl.exe -L -o " + setupName + " \"" + giteeBase + setupName + "\"";
+                }
             }
         } else {
             if (verEl) verEl.textContent = "无可用的版本";
