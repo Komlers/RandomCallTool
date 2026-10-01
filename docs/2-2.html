@@ -97,6 +97,13 @@
                 </li>
                 <li><strong>关闭窗口后保留系统托盘</strong>：关闭主窗口后程序继续在托盘中运行；取消勾选则任何退出操作都会完全退出</li>
                 <li><strong>启动后直接后台驻留托盘</strong>：启动时不显示主界面，直接静默驻留托盘</li>
+                <li><strong>开机自启</strong>：勾选后开机登录时自动启动主程序
+                    <ul>
+                        <li>原理：把开始菜单中的主程序快捷方式复制到系统启动文件夹（资源管理器地址 <code>shell:common startup</code>），取消勾选则删除该快捷方式</li>
+                        <li>公共启动文件夹为所有用户共有，普通账户没有写入权限，勾选或取消时会弹出 UAC 提权请求，允许后才能完成设置</li>
+                        <li>勾选框的初始状态以启动文件夹中快捷方式是否实际存在为准</li>
+                    </ul>
+                </li>
             </ul>
             <h3>更新</h3>
             <ul>
@@ -115,6 +122,50 @@
                 <li><strong>托盘已启用</strong>：点击窗口关闭按钮会隐藏到托盘；主页「退出」按钮、菜单「文件 → 退出」或托盘菜单「退出」则会完全退出程序。</li>
                 <li><strong>托盘已关闭</strong>：所有退出操作（包括关闭窗口）都会完全退出程序，并弹出确认提示。</li>
             </ul>
+            <h2>命令行参数（启动时加载自定义权重）</h2>
+            <p>主程序支持通过命令行参数在启动时直接应用自定义权重，适合脚本、自动化任务或自定义快捷方式调用。</p>
+            <h3>参数说明</h3>
+            <table>
+                <thead>
+                    <tr><th>参数</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--weight-set &lt;名字&gt; &lt;权重&gt;</code></td>
+                        <td>设置一条权重，可重复出现；出现该参数即开启自定义权重</td>
+                    </tr>
+                    <tr>
+                        <td><code>-lib &lt;样本库名&gt;</code></td>
+                        <td>仅加载样本库中指定样本时生效，可重复或使用列表</td>
+                    </tr>
+                    <tr>
+                        <td><code>-file &lt;文件名或路径&gt;</code></td>
+                        <td>仅指定外部文件生效；启动时自动加载第一个存在的文件</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>名称列表</h3>
+            <p>权重名字与 <code>-lib</code> / <code>-file</code> 的目标均支持 JSON 风格列表（整体用单引号包裹，避免与外层引号冲突）：</p>
+            <pre>--weight-set '["测试样本12","测试样本13"]' 20.00</pre>
+            <p>列表内各项使用同一权重；若要为不同名字设置不同权重，重复书写多个 <code>--weight-set</code>。</p>
+            <h3>目标范围</h3>
+            <ul>
+                <li>不写 <code>-lib</code> / <code>-file</code>：任何已加载样本中只要存在该名字即设置权重</li>
+                <li><code>-lib</code>：仅样本库中指定样本被加载时生效</li>
+                <li><code>-file</code>：
+                    <ul>
+                        <li>值为纯文件名（如 <code>demo.txt</code>）：任何路径下的同名文件都生效</li>
+                        <li>值带路径（如 <code>D:\demo\demo.txt</code>）：仅该具体文件生效</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>示例</h3>
+            <pre>rctool.exe --weight-set "测试样本12" 20.00
+rctool.exe --weight-set "测试样本12" 20.00 -lib "测试样本文件"
+rctool.exe --weight-set '["测试样本12","测试样本13"]' 20.00 -file "demo.txt"</pre>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>参数本身的错误（权重值不是数字、为负数、参数缺值、未知参数等）只写入运行日志，不弹出前端窗口；异常部分忽略，程序正常启动。</p>
+            </blockquote>
             <hr>
             <div align="center">
                 <p><a href=".">返回帮助文档首页</a></p>
