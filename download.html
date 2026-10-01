@@ -38,12 +38,12 @@
                         <span id="meta-date" class="info-value">正在加载...</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">开源协议</span>
-                        <span class="info-value">MIT License</span>
-                    </div>
-                    <div class="info-item">
                         <span class="info-label">最新测试版</span>
                         <span id="meta-preview-version" class="info-value">正在加载...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">发布日期</span>
+                        <span id="meta-preview-date" class="info-value">正在加载...</span>
                     </div>
                 </div>
             </div>
@@ -52,8 +52,7 @@
                 <h2>下载须知</h2>
                 <div class="notice-box">
                     <ol>
-                        <li>如果是从安装包更新随机抽取工具，<strong>请先关闭所有“随机抽取工具套件”内的程序</strong>（如：随机抽取工具主程序、更新程序等），然后再运行安装包进行安装，否则可能会导致<strong>致命性的错误</strong>（如程序文件完整性损坏、数据丢失等）</li>
-                        <li>推荐使用程序内置的<strong>更新程序</strong>进行升级，它会自动检测新版本并完成下载安装，无需手动卸载重装。</li>
+                        <li>如果是从安装包更新随机抽取工具，<strong>请先关闭所有随机抽取工具相关的程序</strong>（如：随机抽取工具主程序、更新程序等），然后再运行安装包进行安装，否则可能会导致<strong>致命性的错误</strong>（如程序文件完整性损坏、数据丢失等）；推荐使用程序内置的<strong>更新程序</strong>进行升级，它会自动检测新版本并完成下载安装，无需手动卸载重装。</li>
                         <li>如果使用Edge浏览器下载程序时，提示<strong>“通常不会下载xxx……”</strong>，请点击右边的三点，点击<strong>“保留”</strong>。如果出现弹窗进一步推荐你不要保留，请点击“删除”按钮旁边的倒三角，点击<strong>“仍然保留”</strong>。<strong>本程序完全开源，可承诺100%无病毒无恶意代码</strong>。</li>
                         <li>在Windows10及以上系统中，直接双击打开从互联网下载的exe文件会经过Windows Defender Smartscreen进行病毒扫描。由于本程序封装的安装包没有签名，可能会提示<strong>“未经信任的软件”</strong>，直接点击<strong>“更多信息”→“仍然运行”</strong>即可。</li>
                     </ol>
@@ -93,19 +92,19 @@
                 <div class="build-content">
                     <p>如果您想自行编译源代码，请按照以下步骤操作：</p>
                     <ol>
-                        <li>确保安装了 <strong>Python 3.8+</strong> 环境（官方发行版使用 Python 3.8.10 编译，以兼容 Windows 7）。</li>
+                        <li>确保安装了 <strong>Python 3.6+</strong> 环境（官方发行版使用 Python 3.8.10 编译）。</li>
                         <li>克隆或下载项目到本地：<a href="https://github.com/ElofHew/RandomCallTool" target="_blank">GitHub</a> 或 <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank">Gitee</a>。</li>
                         <li>安装 PyInstaller：<code>pip install pyinstaller</code></li>
-                        <li>（仅限 Windows）在项目根目录运行构建脚本生成可执行文件：<code>build.bat</code>（目录式打包，依赖包外置于 <code>_internal</code> 目录）。</li>
+                        <li>安装项目所需依赖：<code>pip install -r requirements.txt</code></li>
+                        <li>（仅限 Windows）在项目根目录运行构建脚本生成可执行文件：<code>build.bat</code></li>
                         <li>（可选）使用 <strong>7z SFX Builder</strong> 搭配根目录下的 <code>SFX_config.txt</code> 打包自解压安装程序。</li>
                     </ol>
-                    <p>构建完成后会生成主程序 <code>rctool.exe</code>、更新程序 <code>update.exe</code> 与卸载工具 <code>remove.exe</code>。</p>
+                    <p>构建完成后，完整的软件结构存放于 <code>dist</code> 目录下，可直接运行其中的 <code>rctool.exe</code> 文件。</p>
                 </div>
             </div>
 
             <div class="footer">
                 <p>Copyright &copy; 2025~2026 ElofHew. All rights reserved.</p>
-                <p class="footer-note">“随机抽取工具” 是基于 “MIT” 开源协议开发的桌面应用程序，请勿用于商业用途。</p>
             </div>
         </div>
         <script src="js/getmeta.js"></script>

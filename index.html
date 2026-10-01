@@ -9,7 +9,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="description" content="随机抽取工具（RandomCallTool），是一个基于Python3 + tkinter的桌面应用程序，支持随机抽组、随机抽人和随机点名，内置三档可切换的抽样模式，并配套独立的更新程序与卸载工具。基于MIT License开源，支持Windows、Linux、macOS等操作系统，代码托管于GitHub和Gitee，欢迎您下载和使用。" />
+        <meta name="description" content="随机抽取工具（RandomCallTool），是一个基于Python3 + tkinter的桌面应用程序，支持随机抽组、随机抽人和随机点名，内置三档可切换的抽样模式，并配套独立的更新程序与卸载工具。基于MIT License开源，主要支持Windows，也可用于Linux、macOS等操作系统，代码托管于GitHub和Gitee，欢迎下载和使用。" />
         <meta name="keywords" content="RandomCallTool,随机抽取工具,随机抽组,随机抽人,随机点名,Dan_Evan,ElofHew,Python,tkinter,开源,GitHub,Gitee" />
         <meta name="author" content="Dan_Evan" />
         <meta name="robots" content="index,follow" />
@@ -28,12 +28,13 @@
                 <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank"><img src="icon/gitee.svg" alt="Gitee" title="Gitee" width="20" /></a>
             </div>
         </div>
+
         <div class="main" id="main">
             <div class="hero">
                 <img src="icon/randomcalltool.svg" alt="RandomCallTool Logo" width="180" />
                 <h1>随机抽取工具</h1>
                 <p class="subtitle">RandomCallTool</p>
-                <p>一个基于 Python + tkinter 的桌面随机抽取应用程序</p>
+                <p>一个基于 Python3 + tkinter 的桌面随机抽取应用程序</p>
                 <div class="hero-buttons">
                     <a href="download.html" class="button primary">下载最新版本</a>
                     <a href="docs/3-2.html" id="meta-vercode" class="button primary" target="_blank">查看更新日志</a>
@@ -48,7 +49,8 @@
                 <h2>简介</h2>
                 <div class="about-content">
                     <p>随机抽取工具（RandomCallTool）是一个基于 <strong>Python3 + tkinter</strong> 的桌面应用程序，拥有 <strong>随机抽组</strong>、<strong>随机抽人</strong>、<strong>随机点名</strong> 三大核心功能。</p>
-                    <p>主程序内置三档可切换的抽样模式（基本抽样 / 智能抽样 / 高级抽样），并支持样本库管理、历史记录、快捷键操作等丰富特性。</p>                    <p>自 <strong>V2.7</strong> 起还提供 <strong>桌面悬浮球</strong> 与 <strong>系统托盘</strong>：桌面上点一下即可快速抽取，关闭窗口后也能继续后台运行。</p>                    <p>项目还配套独立的 <strong>更新程序</strong> 与 <strong>卸载工具</strong>；更新程序支持 GitHub / Gitee 双更新源，并提供夸克网盘、蓝奏云等备用下载方式。</p>
+                    <p><strong>随机抽取</strong> 内置三档可切换的抽样模式（基本抽样 / 智能抽样 / 高级抽样），并支持样本库管理、历史记录、快捷键操作等丰富特性。</p>
+                    <p>自 <strong>V2.7</strong> 起还提供 <strong>桌面悬浮球</strong> 与 <strong>系统托盘</strong>：桌面上点一下即可快速抽取。</p>
                     <div class="about-info">
                         <div class="info-item">
                             <span class="info-label">最新版本</span>
@@ -59,12 +61,12 @@
                             <span id="meta-date" class="info-value">正在加载...</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">开源协议</span>
-                            <span class="info-value">MIT License</span>
-                        </div>
-                        <div class="info-item">
                             <span class="info-label">最新测试版</span>
                             <span id="meta-preview-version" class="info-value">正在加载...</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">发布日期</span>
+                            <span id="meta-preview-date" class="info-value">正在加载...</span>
                         </div>
                     </div>
                 </div>
@@ -129,26 +131,16 @@
                         <p>支持 GitHub / Gitee 双更新源，可直接下载安装包，也可选择夸克网盘、蓝奏云等备用网盘。</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🧹</div>
-                        <h3>卸载工具</h3>
-                        <p>三种卸载模式（保留数据 / 重置配置 / 完全卸载），并自动清理开始菜单与桌面快捷方式。</p>
-                    </div>
-                    <div class="feature-card">
                         <div class="feature-icon">⌨️</div>
                         <h3>快捷键操作</h3>
                         <p>丰富的键盘快捷键支持，大幅提升操作效率，让抽取工作更加流畅。</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📝</div>
-                        <h3>详细日志记录</h3>
-                        <p>按日期滚动记录程序运行状态，支持查看和清理日志文件，便于调试和追踪。</p>
                     </div>
                 </div>
             </div>
 
             <div class="section" id="screenshots">
                 <h2>界面截图</h2>
-                <p style="text-align: center; color: #888; font-size: 14px;">以下截图截取自 2.3 版本，当前版本界面可能有所不同。</p>
+                <p style="text-align: center; color: #888; font-size: 14px;">以下截图截取自 2.7 版本</p>
                 <div class="gallery-container">
                     <div class="gallery-item">
                         <a href="img/img1.png" target="_blank">
@@ -171,27 +163,6 @@
                 </div>
             </div>
 
-            <div class="section" id="sampling">
-                <h2>抽样模式</h2>
-                <div class="modes-container">
-                    <div class="mode-card">
-                        <h3>模式 0 · 基本抽样</h3>
-                        <div class="mode-badge basic">基础</div>
-                        <p>使用内置的 <code>random.sample</code> 进行简单随机抽取，每个样本被抽中的概率均等。适用于简单的抽选场景。</p>
-                    </div>
-                    <div class="mode-card">
-                        <h3>模式 1 · 智能抽样</h3>
-                        <div class="mode-badge smart">智能</div>
-                        <p>追踪近期抽取历史，自动降低刚被选中项的权重，让每个人都有更均等的机会被抽中。适用于多次连续抽取的场景。</p>
-                    </div>
-                    <div class="mode-card">
-                        <h3>模式 2 · 高级抽样</h3>
-                        <div class="mode-badge weighted">高级</div>
-                        <p>利用高级算法，可自定义调整多种高级抽样方式，涵盖自定义权重、预抽取平衡、抽取前打乱等，可以使抽取更加公平</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="section" id="download">
                 <h2>软件下载</h2>
                 <div class="build-content" style="text-align: center;">
@@ -202,7 +173,6 @@
 
             <div class="footer">
                 <p>Copyright &copy; 2025~2026 ElofHew. All rights reserved.</p>
-                <p class="footer-note">“随机抽取工具” 是基于 “MIT” 开源协议开发的桌面应用程序，请勿用于商业用途。</p>
             </div>
         </div>
         <script src="js/getmeta.js"></script>

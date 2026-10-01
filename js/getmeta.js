@@ -23,7 +23,8 @@
     const verEl = document.getElementById("meta-version");
     const dateEl = document.getElementById("meta-date");
     const vcEl = document.getElementById("meta-vercode");
-    const preEl = document.getElementById("meta-preview-version");
+    const preverEl = document.getElementById("meta-preview-version");
+    const predateEl = document.getElementById("meta-preview-date");
 
     /**
      * 带超时控制的 fetch 请求
@@ -88,14 +89,21 @@
             if (meta.version.vercode && vcEl) {
                 vcEl.href = "docs/3-2.html#" + meta.version.vercode;
             }
+        } else {
+            if (verEl) verEl.textContent = "无可用的版本";
+            if (dateEl) dateEl.textContent = "无可用的版本";
         }
         // ── 测试版信息 ──
-        if (preEl) {
-            if (meta.preview && meta.preview.version) {
-                preEl.textContent = "v" + meta.preview.version;
-            } else {
-                preEl.textContent = "无可用的测试版";
+        if (meta.preview) {
+            if (meta.preview.version && preverEl) {
+                preverEl.textContent = "v" + meta.preview.version;
             }
+            if (meta.preview.date && predateEl) {
+                predateEl.textContent = meta.preview.date;
+            }
+        } else {
+            if (preverEl) preverEl.textContent = "无可用的测试版";
+            if (predateEl) predateEl.textContent = "无可用的测试版";
         }
         // ── 蓝奏云链接 ──
         if (meta.lanzou) {
