@@ -26,7 +26,8 @@ document.getElementById("sidebar").innerHTML = `
         <li><a href="2-1.html">独立更新程序</a></li>
         <li><a href="2-2.html">独立卸载程序</a></li>
         <li><a href="2-3.html">快捷键支持</a></li>
-        <li><a href="2-4.html">跨平台说明</a></li>
+        <li><a href="2-4.html">命令行参数</a> — 命令行参数详解</li>
+        <li><a href="2-5.html">跨平台说明</a> — Windows / macOS / Linux 支持情况与源码运行</li>
     </ul>
     <li><a href="#">第三部分 · 说明与更多</a></li>
     <ul>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,700:MiSans" />
+    <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="style.css">
+    <title>跨平台说明 - 随机抽取工具 帮助文档</title>
+</head>
+<body>
+    <div class="header" id="header"></div>
+    <div class="sidebar" id="sidebar"></div>
+    <script src="hs.js"></script>
+    <div class="container">
+        <div class="markdown-body">
+            <h1>跨平台说明</h1>
+            <p>随机抽取工具基于 Python + tkinter 编写，代码层面考虑了多平台运行，但<strong>官方仅提供 Windows 编译版本</strong>。</p>
+            <hr>
+            <h2>平台支持总览</h2>
+            <table>
+                <thead>
+                    <tr><th>平台</th><th>支持情况</th><th>获取方式</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Windows</strong></td>
+                        <td>完整支持并持续测试（Windows 7 / 8 / 8.1 / 10 / 11）</td>
+                        <td>提供安装版与绿色版，开箱即用</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linux</strong></td>
+                        <td>可通过源码运行，源码做了一些小适配，但可能还会有位置的问题</td>
+                        <td>源码运行 / 自行编译</td>
+                    </tr>
+                    <tr>
+                        <td><strong>macOS</strong></td>
+                        <td>同上</td>
+                        <td>同上</td>
+                    </tr>
+                </tbody>
+            </table>
+            <blockquote class="markdown-alert markdown-alert-tip">
+                <p>对于macOS平台，能做的适配可能会更少，因为本程序只在Windows和Linux平台上做过测试，且只在Windows平台上开发。</p>
+                <p>此外，例如检测更新、卸载软件、开机自启等等功能，只确保Windows能用，Linux和macOS无法使用。</p>
+            </blockquote>
+            <hr>
+            <h2>各功能的平台相关性</h2>
+            <ul>
+                <li><strong>打开文件 / 目录</strong>：已做跨平台处理 —— Windows 使用 <code>os.startfile</code>，macOS 使用 <code>open</code>，Linux 使用 <code>xdg-open</code></li>
+                <li><strong>桌面悬浮球 / 系统托盘</strong>：基于 <code>pystray</code> 与 <code>Pillow</code>，这两个库本身支持三大平台</li>
+                <li><strong>开机自启</strong>：<strong>仅支持 Windows</strong>。其实现依赖开始菜单快捷方式与系统启动文件夹（<code>shell:common startup</code>），并通过 UAC 完成提权；非 Windows 下该配置项不可用</li>
+                <li><strong>更新程序 / 卸载工具</strong>：围绕 Windows 的安装方式设计（开始菜单、桌面快捷方式、自解压安装到 <code>C:\Apps\RandomCallTool</code>），未适配其他平台</li>
+            </ul>
+            <blockquote class="markdown-alert markdown-alert-warning">
+                <p><strong>悬浮球</strong>实测在Linux下会有显示问题，表现为圆形外侧有一圈白色边框。</p>
+                <p>测试环境：Fedora 44 + Wayland + KWin + KDE Plasma 6.7.5</p>
+            </blockquote>
+            <hr>
+            <h2>从源码运行</h2>
+            <p>macOS 与 Linux 用户可按以下步骤从源码运行主程序：</p>
+            <ol>
+                <li>安装 <strong>Python 3.8</strong> 或更高版本（官方开发与编译使用 Python 3.8.10）；Linux 下还需安装 tkinter，例如 Ubuntu / Debian：<code>sudo apt install python3-tk</code></li>
+                <li>获取源码（<a href="https://github.com/ElofHew/RandomCallTool" target="_blank">GitHub</a> / <a href="https://gitee.com/ElofHew/RandomCallTool" target="_blank">Gitee</a>）并进入项目目录</li>
+                <li>安装依赖：<code>pip install -r requirements.txt</code></li>
+                <li>运行主程序：<code>python src/rctool.py</code></li>
+            </ol>
+            <h3>依赖说明</h3>
+            <table>
+                <thead>
+                    <tr><th>依赖</th><th>用途</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>pyzmq</code></td><td>ClassIsland IslandMQ 消息通知</td></tr>
+                    <tr><td><code>pystray</code></td><td>系统托盘图标</td></tr>
+                    <tr><td><code>Pillow</code></td><td>托盘 / 悬浮球图像生成</td></tr>
+                    <tr><td><code>pyinstaller</code></td><td>打包为 exe（仅打包时需要）</td></tr>
+                </tbody>
+            </table>
+            <blockquote class="markdown-alert markdown-alert-note">
+                <p>本项目优先支持 Windows。在非 Windows 平台使用时如遇到问题，可以反馈，但随缘修复更新吧。</p>
+            </blockquote>
+            <hr>
+            <div align="center">
+                <p><a href=".">返回帮助文档首页</a></p>
+                <p>&copy; 2025~2026 ElofHew. All rights reserved.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
